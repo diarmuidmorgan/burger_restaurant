@@ -28,11 +28,7 @@ function Clock() {
         time = time + (speed / 1000);
         document.getElementById('clockDisplay').innerHTML = time.toString();
         
-        // 20% chance of customer arriving every tick
-        if (Math.random() >= 0.8) {
-            console.log("new customer")
-            customer = new Customer();
-        }
+        gameLoop()
 
     };
 
@@ -94,6 +90,9 @@ function Restaurant() {
     this.ticketqueue = new Queue;
     this.ticketmachine = new TicketGenerator;
     this.netEarning = 0;
+    
+    this.angryCustomers = 0;
+    this.happyCustomers = 0;
 
     while (this.clock.time < 1000) {
         setTimeout(console.log(this.ticketmachine.next()), 300)
@@ -101,7 +100,3 @@ function Restaurant() {
 }
 
 var burgerTown = new Restaurant();
-
-document.addEventListener("DOMContentLoaded", function (event) {
-    document.getElementById("debug").insertAdjacentHTML('beforeend', JSON.stringify(customer.order));
-});

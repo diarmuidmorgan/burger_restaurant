@@ -7,6 +7,8 @@ function FoodOrder() {
     this.drink = randomSelection(menu.drink)
     
     this.orderTotal = this.main.PRICE + this.side.PRICE + this.sauce.PRICE + this.drink.PRICE
+    
+    this.completed = false
 
     // Function to randomly select an item from the menu
     function randomSelection(menuItem) {
