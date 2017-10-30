@@ -27,9 +27,8 @@ function Clock() {
     }
     this.increment = function () {
         time = time + speed;
-        document.getElementById('clock').innerHTML = '<p>' + time.toString() + '</p>';
+        document.getElementById('timeDisplay').innerHTML = time.toString();
         console.log(time);
-        //not workin for some amorphous reason or other//
     };
 
     this.stop = function () {
@@ -44,7 +43,6 @@ function Clock() {
 this.setSpeed = function (x) {
 
     speed = x;
-
 }
 
 
@@ -170,13 +168,7 @@ function ticketGenerator() {
 
             return false;
         }
-
-
-
-
     }
-
-
 }
 
 
@@ -187,15 +179,9 @@ function restaurant() {
     this.ticketmachine = new ticketGenerator;
     this.clock.start()
 
-    while (this.clock.time() < 1000) {
+    while (this.clock.time < 1000) {
         setTimeout(console.log(this.ticketmachine.next()), 300)
-
-
-
     }
-
-
-
 }
 
 
@@ -228,4 +214,4 @@ var menu = {
 
 
 
-// var burgerTown = new restaurant()
+var burgerTown = new restaurant()

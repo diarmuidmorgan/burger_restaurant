@@ -16,19 +16,14 @@
 
 
     <div id="clock">
-
-
         <div id='control'>
-
-            <div class="btn" onclick="clock.stop()">
+            <button name="clockStopBtn" onclick="Clock.stop()">
                 <p>Stop</p>
-            </div>
-            <div class="btn" onclick="clock.start()">
+            </button>
+            <button name="clockStartBtn" onclick="Clock.start()">
                 <p>Start</p>
-            </div>
-            <div style="display:block"></div>
-
-
+            </button>
+            <div id="timeDisplay"></div>
         </div>
     </div>
 
