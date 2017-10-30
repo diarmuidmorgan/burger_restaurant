@@ -29,14 +29,14 @@ function Clock() {
         time = time + speed;
         document.getElementById('clockDisplay').innerHTML = time.toString();
     };
-    
+
     this.stop = function () {
         clearInterval(this.c);
     }
     this.start = function () {
         this.c = setInterval(this.increment, 30);
     }
-    
+
 }
 
 this.setSpeed = function (x) {
@@ -133,10 +133,6 @@ function TicketGenerator() {
     this.createSeed = function (x) {
 
         return Math.floor((Math.random() * x) + 1);
-
-
-
-
     }
 
     this.ReturnMains = function () {
@@ -183,30 +179,85 @@ function Restaurant() {
     }
 }
 
+function FoodOrder() {
+    // Constructor for a food order
+    this.main = randomSelection(menu.main)
+    this.side = randomSelection(menu.side)
+    this.sauce = randomSelection(menu.sauce)
+    this.drink = randomSelection(menu.drink)
+    this.test = Object.keys(menu.main)
 
+    // Function to randomly select an item from the menu
+    function randomSelection(menuItem) {
+        var props = Object.getOwnPropertyNames(menuItem)
+        return menuItem[props[props.length * Math.random() << 0]];
+    };
+
+}
 
 var menu = {
-    mains: {
-        'JDBURGER': 5.90,
-        'MAPLEBURGER': 6.40,
-        'MONSTERBURGER': 9.90,
-        'RIBEYE': 6.40,
+    main: {
+        'JDBURGER': {
+            'PRICE': 5.90,
+            'GRILLED': true,
+        },
+        'MAPLEBURGER': {
+            'PRICE': 6.40,
+            'GRILLED': true,
+        },
+        'MONSTERBURGER': {
+            'PRICE': 9.90,
+            'GRILLED': true,
+        },
+        'RIBEYE': {
+            'PRICE': 6.40,
+            'GRILLED': true,
+        }
     },
-    sides: {
-        'CHIPS': 4.00,
-        'RINGS': 6.50,
-        'SALD': 5.50,
-    }, 
-    sauces: {
-        'KETCHUP': 2.00,
-        'HOTSAUCE': 3.50,
-        'CHIPOTLE': 4.00,
+    side: {
+        'CHIPS': {
+            'PRICE': 4.00,
+            'FRIED': true,
+        },
+        'RINGS': {
+            PRICE: 6.50,
+            FRIED: true,
+        },
+        'SALAD': {
+            PRICE: 5.50,
+        },
     },
+    sauce: {
+        'KETCHUP': {
+            'PRICE': 2.00,
+        },
+        'HOTSAUCE': {
+            'PRICE': 3.50,
+        },
+
+        'CHIPOTLE': {
+            'PRICE': 4.00,
+        },
+    },
+    drink: {
+        'COKE': {
+            'PRICE': 3.50,
+            'COLD': true,
+        },
+        'WATER': {
+            'PRICE': 2.50,
+            'COLD': true,
+        },
+        'COFFEE': {
+            'PRICE': 3.00,
+            'HOT': true,
+        },
+    }
 }
 
 var burgerTown = new Restaurant();
-
+var newOrder = new FoodOrder();
 // Wait for the HTML to load and do some stuff
-document.addEventListener("DOMContentLoaded", function(event) { 
-    document.getElementById("debug").insertAdjacentHTML('beforeend', JSON.stringify(menu));
+document.addEventListener("DOMContentLoaded", function (event) {
+    document.getElementById("debug").insertAdjacentHTML('beforeend', JSON.stringify(newOrder));
 });
