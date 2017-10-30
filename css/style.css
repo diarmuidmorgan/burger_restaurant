@@ -1,0 +1,16 @@
+#display {
+    
+}  
+
+#clock {
+    width: 100%;
+    height: 100%;
+}
+
+#control {
+    display: inline;
+}
+
+.btn {
+    display: block;
+}
