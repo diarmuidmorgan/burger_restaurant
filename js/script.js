@@ -18,14 +18,14 @@ function Queue() {
 
 function Clock() {
     //basic clock class for the restaurant
-    var time = 5;
-    var speed = 1
+    var time = 0
+    var speed = 1000 // Speed in milliseconds
 
     this.time = function () {
         return time;
     }
     this.increment = function () {
-        time = time + speed;
+        time = time + (speed / 1000);
         document.getElementById('clockDisplay').innerHTML = time.toString();
     };
 
@@ -33,7 +33,7 @@ function Clock() {
         clearInterval(this.c);
     }
     this.start = function () {
-        this.c = setInterval(this.increment, 30);
+        this.c = setInterval(this.increment, speed);
     }
 
 }
