@@ -28,6 +28,7 @@ function Clock() {
         time = time + (speed / 1000);
         document.getElementById('clockDisplay').innerHTML = time.toString();
         
+        // 20% chance of customer arriving every tick
         if (Math.random() >= 0.8) {
             console.log("new customer")
             customer = new Customer();
@@ -100,7 +101,6 @@ function Restaurant() {
 }
 
 var burgerTown = new Restaurant();
-var customer = new Customer;
 
 document.addEventListener("DOMContentLoaded", function (event) {
     document.getElementById("debug").insertAdjacentHTML('beforeend', JSON.stringify(customer.order));
