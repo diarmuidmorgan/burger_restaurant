@@ -186,31 +186,27 @@ function Restaurant() {
 
 
 var menu = {
-    mains: [{
-        id: 'JDBURGER'
-    }, {
-        id: 'MAPLEBURGER'
-    }, {
-        id: 'MONSTERBURGER'
-    }, {
-        id: 'RIBEYE'
-    }],
-    sides: [{
-        id: 'CHIPS'
-    }, {
-        id: "RINGS"
-    }, {
-        id: "SALAD"
-    }],
-    sauces: [{
-        id: 'KETCHUP'
-    }, {
-        id: "HOTSAUCE"
-    }, {
-        id: "CHIPOTLE"
-    }]
+    mains: {
+        'JDBURGER': 5.90,
+        'MAPLEBURGER': 6.40,
+        'MONSTERBURGER': 9.90,
+        'RIBEYE': 6.40,
+    },
+    sides: {
+        'CHIPS': 4.00,
+        'RINGS': 6.50,
+        'SALD': 5.50,
+    }, 
+    sauces: {
+        'KETCHUP': 2.00,
+        'HOTSAUCE': 3.50,
+        'CHIPOTLE': 4.00,
+    },
 }
 
-
-
 var burgerTown = new Restaurant();
+
+// Wait for the HTML to load and do some stuff
+document.addEventListener("DOMContentLoaded", function(event) { 
+    document.getElementById("debug").insertAdjacentHTML('beforeend', JSON.stringify(menu));
+});
