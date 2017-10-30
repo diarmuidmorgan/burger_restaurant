@@ -1,31 +1,30 @@
-var queue = []
-
 function gameLoop() {
     // Runs through the customers and checks their status
-    for (var customer in queue) {
+    for (var customer in burgerTown.queue) {
 
         // Looks at whether the order is fulfilled, makes them angry if it's not.
-        if (queue[customer].order.completed == true) {
+        if (burgerTown.queue[customer].order.completed == true) {
             console.log("Order completed")
             burgerTown.netEarning += customer.order.orderTotal;
-            queue.splice(customer, 1)
+            burgerTown.queue.splice(customer, 1)
+                        burgerTown.customerServed += 1
         } else {
-            queue[customer].anger += 5;
+            burgerTown.queue[customer].anger += 5;
         }
 
         // Customers walk out without paying if they're too angry
-        if (queue[customer].anger >= 80) {
-            queue.splice(customer, 1)
-            burgerTown.angryCustomers += 1
+        if (burgerTown.queue[customer].anger >= 80) {
+            burgerTown.queue.splice(customer, 1)
+            burgerTown.customerWalkouts += 1
             console.log("The customer got too irate and walked out.")
         }
     }
+    // Random chance for a customer to arrive each tick
     if (Math.random() >= 0.5) {
         console.log("A customer has arrived.")
-        queue.push(new Customer());
+        burgerTown.queue.push(new Customer());
     }
 
     // Redrawing other HTML stuff
-    document.getElementById('earnings').innerHTML = burgerTown.netEarning
-    document.getElementById('angryCustomers').innerHTML = burgerTown.angryCustomers
+    renderStatistics();
 }

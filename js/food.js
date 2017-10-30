@@ -9,6 +9,12 @@ function FoodOrder() {
     this.orderTotal = this.main.PRICE + this.side.PRICE + this.sauce.PRICE + this.drink.PRICE
     
     this.completed = false
+    
+    /*
+    // Orders should eventually be completed in increments
+    // according to skill of cook, with 100 being completed
+    this.completion = 0
+    */
 
     // Function to randomly select an item from the menu
     function randomSelection(menuItem) {
