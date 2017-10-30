@@ -1,0 +1,239 @@
+<!doctype html>
+<html>
+<head>
+	
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+</head>
+<body>
+	
+	<p id='display'>...</p>
+	
+	
+	<div id="clock" width="100%" height = "100%">
+
+	
+	<div id='control' style="display:inline">
+	
+	<div class="btn" style="display:block" onclick="clock.stop()"><p>Stop</p></div>
+		<div class="btn" style="display:block" onclick="clock.start()"><p>Start</p></div>
+		<div style="display:block"></div>
+	
+	
+	</div>
+	</div>
+
+
+</body>
+
+<script>
+
+function queue(){
+	//basic, inefficient, queue function
+		this.list = [];
+		this.addTo = function(x){
+			
+			this.list.push(x);
+		};
+		this.next = function(){
+			var x = this.list[0];
+			var new_arr=[]
+			for (i=1;i<this.list.length; i++){
+				new_arr.push(this.list[i]);}
+			this.list = new_arr;
+			return x;};
+}
+
+	
+function Clock(){
+	//basic clock class for the restaurant
+	var time = 5;
+	var speed = 1
+	
+	this.time = function(){
+		return time;}
+	this.increment = function(){
+		time = time + speed;
+		document.getElementById('clock').innerHTML='<p>'+time.toString()+'</p>';
+		console.log(time);
+		//not workin for some amorphous reason or other//
+	};
+	
+	this.stop = function(){
+		clearInterval(this.c);
+}
+	this.start = function(){
+		
+		this.c = setInterval(this.increment, 30);
+		}};
+	
+	this.setSpeed = function(x){
+		
+		speed = x;
+		
+	}
+	
+	
+function grill(){
+	//grill class
+	var temp = 0;
+	var mode = 'off';
+	this.switch = function(){
+		if (mode=='off'){
+			mode='on';
+		}
+		else {
+			mode='off'
+		}}
+	
+	this.displayTemp = function(){
+		return temp;
+}
+};
+	
+function fryer(){
+	//fryer class constructor
+	var temp = 0;
+	var mode = 'off';
+	var contents = 'empty';
+	
+	this.switch = function(){
+		if (mode=='off'){
+			mode='on';
+		}
+		else {
+			mode='off'
+		}}
+	this.displayTemp = function(){
+		return temp;
+		
+		
+		
+		
+	}};
+	
+function cupboard(x){
+	//cupboard class constructor
+	
+	this.contents = [[], [], [], [], [], [], [], [], [], []]
+	this.withdraw = function(x){
+		for (i=0;i<contents.length; i++){
+			if(contents[i].id == x){
+				var v = contents[i];
+				contents[i] = [];
+				return v;
+			}
+		return false;
+	}};
+	
+	
+	
+}
+	
+function station(list){
+	//station class constructor
+	
+	 this.display = function(){
+		
+		 return 0;
+		
+		
+	}
+	
+	
+	
+}
+	
+function ticketGenerator(){
+	//generates tickets for the restaurant
+	this.createSeed = function(x){
+		
+		return Math.floor((Math.random() * x) + 1);
+		
+		
+		
+		
+	}
+	
+	this.ReturnMains = function(){
+		
+		var seed = this.createSeed(3);
+		return menu.mains[seed].id;
+		
+	}
+	this.ReturnSides = function(){
+		
+		var seed = this.createSeed(2);
+		return menu.sides[seed].id;
+		
+	}
+	this.ReturnSauces = function(){
+		
+		var seed = this.createSeed(2);
+		return menu.sauces[seed].id;
+		
+	}
+	
+	this.next = function(){
+		var seed = this.createSeed(10);
+			if(seed>2){
+				var ticket = this.ReturnMains() + '_' + this.ReturnSides() +'_'+ this.ReturnSauces()
+				
+			}
+			else{
+				
+				return false;
+			}
+			
+		
+		
+		
+	}
+	
+	
+}
+	
+	
+function restaurant(){
+	
+	this.clock = new Clock;
+	this.ticketqueue = new queue;
+	this.ticketmachine = new ticketGenerator;
+	this.clock.start()
+	
+	while (this.clock.time()<1000){
+		setTimeout(console.log(this.ticketmachine.next()), 300)
+		
+		
+		
+	}
+	
+	
+	
+}
+	
+	
+	
+var menu = {mains:[{id : 'JDBURGER'}, {id : 'MAPLEBURGER'}, {id : 'MONSTERBURGER'}, {id: 'RIBEYE'}], sides:[{id:'CHIPS'}, {id:"RINGS"}, {id:"SALAD"}], sauces:[{id:'KETCHUP'}, {id:"HOTSAUCE"}, {id:"CHIPOTLE"}]}
+	
+
+	
+var burgerTown = new restaurant()
+	
+
+	
+	
+
+
+	
+	
+	
+
+
+
+
+
+</script>
+</html>

@@ -2,13 +2,8 @@
 <html>
 
 <head>
-    <script type="text/javascript" src="js/gameloop.js"></script>
-    <script type="text/javascript" src="js/rendering.js"></script>
-    <script type="text/javascript" src="js/cooking.js"></script>
-    <script type="text/javascript" src="js/food.js"></script>
-    <script type="text/javascript" src="js/customer.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
 
+    <script type="text/javascript" src="js/script.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
 
@@ -17,21 +12,27 @@
 
 <body>
 
+    <p id='display'>...</p>
+
+
     <div id="clock">
-        <p id='clockDisplay'></p>
+
+
         <div id='control'>
-            <button name="clockStopBtn" onclick="burgerTown.clock.stop()">
+
+            <div class="btn" onclick="clock.stop()">
                 <p>Stop</p>
-            </button>
-            <button name="clockStartBtn" onclick="burgerTown.clock.start()">
+            </div>
+            <div class="btn" onclick="clock.start()">
                 <p>Start</p>
-            </button>
+            </div>
+            <div style="display:block"></div>
+
+
         </div>
     </div>
-    <div id="receiptBox">
 
-    </div>
-    <div id="debug"></div>
+
 </body>
 
 
