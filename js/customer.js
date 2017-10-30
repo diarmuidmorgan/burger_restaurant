@@ -4,5 +4,7 @@ function Customer(){
     
     // Very rudimentary ordering system - not sure how to update the HTML elegantly...
     burgerTown.netEarning += this.order.orderTotal;
-    console.log(burgerTown.netEarning);
+    document.getElementById('earnings').innerHTML = burgerTown.netEarning
+    
+    document.getElementById('debug').innerHTML = JSON.stringify(this.order)
 }
