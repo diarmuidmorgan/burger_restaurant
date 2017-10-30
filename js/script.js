@@ -16,7 +16,6 @@ function Queue() {
     };
 }
 
-
 function Clock() {
     //basic clock class for the restaurant
     var time = 5;
@@ -42,90 +41,6 @@ function Clock() {
 this.setSpeed = function (x) {
 
     speed = x;
-}
-
-
-function Grill() {
-    //grill class
-    var temp = 0;
-    var mode = 'off';
-    this.switch = function () {
-        if (mode == 'off') {
-            mode = 'on';
-        } else {
-            mode = 'off'
-        }
-    }
-
-    this.displayTemp = function () {
-        return temp;
-    }
-};
-
-function Fryer() {
-    //fryer class constructor
-    var temp = 0;
-    var mode = 'off';
-    var contents = 'empty';
-
-    this.switch = function () {
-        if (mode == 'off') {
-            mode = 'on';
-        } else {
-            mode = 'off'
-        }
-    }
-    this.displayTemp = function () {
-        return temp;
-
-
-
-
-    }
-};
-
-function Cupboard(x) {
-    //cupboard class constructor
-
-    this.contents = [
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        []
-    ]
-    this.withdraw = function (x) {
-        for (i = 0; i < contents.length; i++) {
-            if (contents[i].id == x) {
-                var v = contents[i];
-                contents[i] = [];
-                return v;
-            }
-            return false;
-        }
-    };
-
-
-
-}
-
-function Station(list) {
-    //station class constructor
-
-    this.display = function () {
-
-        return 0;
-
-
-    }
-
-
-
 }
 
 function TicketGenerator() {
@@ -166,7 +81,6 @@ function TicketGenerator() {
     }
 }
 
-
 function Restaurant() {
 
     this.clock = new Clock;
@@ -178,7 +92,6 @@ function Restaurant() {
         setTimeout(console.log(this.ticketmachine.next()), 300)
     }
 }
-
 
 var burgerTown = new Restaurant();
 
