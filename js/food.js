@@ -1,6 +1,7 @@
 
 function FoodOrder() {    
     // Constructor for a food order
+    // Should function more dynamically, taking a hunger parameter and assembling accordingly.
     this.main = randomSelection(menu.main)
     this.side = randomSelection(menu.side)
     this.sauce = randomSelection(menu.sauce)

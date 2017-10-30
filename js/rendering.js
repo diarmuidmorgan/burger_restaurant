@@ -9,9 +9,11 @@ function renderOrder(order) {
         "<br><br>"
 }
 
+
 function renderStatistics() {
+    // Function to add persistant statistics
     var debug = document.getElementById('debug');
     debug.innerHTML = 'Net earning: ' + burgerTown.netEarning + '<br>';
-    debug.insertAdjacentHTML('beforeend', 'Walkouts: ' + burgerTown.angryCustomers + '<br>');
+    debug.insertAdjacentHTML('beforeend', 'Walkouts: ' + burgerTown.customerWalkouts + '<br>');
     debug.insertAdjacentHTML('beforeend', 'Queue length: ' + burgerTown.queue.length + '<br>');
 }

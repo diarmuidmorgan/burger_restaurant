@@ -27,7 +27,8 @@ function Clock() {
     this.increment = function () {
         time = time + (speed / 1000);
         document.getElementById('clockDisplay').innerHTML = time.toString();
-        
+
+        // Calls the game loop every tick
         gameLoop()
 
     };
@@ -85,12 +86,12 @@ function TicketGenerator() {
 }
 
 function Restaurant() {
-
+    // Constructor for the restaurant class
     this.clock = new Clock;
     this.ticketqueue = new Queue;
     this.ticketmachine = new TicketGenerator;
+
     this.netEarning = 0;
-    
     this.customerWalkouts = 0;
     this.customerServed = 0;
     this.queue = []

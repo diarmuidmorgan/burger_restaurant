@@ -7,7 +7,7 @@ function gameLoop() {
             console.log("Order completed")
             burgerTown.netEarning += customer.order.orderTotal;
             burgerTown.queue.splice(customer, 1)
-                        burgerTown.customerServed += 1
+            burgerTown.customerServed += 1
         } else {
             burgerTown.queue[customer].anger += 5;
         }
@@ -20,7 +20,7 @@ function gameLoop() {
         }
     }
     // Random chance for a customer to arrive each tick
-    if (Math.random() >= 0.5) {
+    if (Math.random() >= 0) {
         console.log("A customer has arrived.")
         burgerTown.queue.push(new Customer());
     }
