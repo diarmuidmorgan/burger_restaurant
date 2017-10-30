@@ -70,7 +70,5 @@ function Station(list) {
     this.display = function () {
 
         return 0;
-
-
     }
 }

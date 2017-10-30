@@ -27,6 +27,12 @@ function Clock() {
     this.increment = function () {
         time = time + (speed / 1000);
         document.getElementById('clockDisplay').innerHTML = time.toString();
+        
+        if (Math.random() >= 0.8) {
+            console.log("new customer")
+            customer = new Customer();
+        }
+
     };
 
     this.stop = function () {
@@ -86,7 +92,7 @@ function Restaurant() {
     this.clock = new Clock;
     this.ticketqueue = new Queue;
     this.ticketmachine = new TicketGenerator;
-    //this.clock.start();
+    this.netEarning = 0;
 
     while (this.clock.time < 1000) {
         setTimeout(console.log(this.ticketmachine.next()), 300)
@@ -94,9 +100,8 @@ function Restaurant() {
 }
 
 var burgerTown = new Restaurant();
+var customer = new Customer;
 
-// Wait for the HTML to load and do some stuff
 document.addEventListener("DOMContentLoaded", function (event) {
-    var newOrder = new FoodOrder();
-    document.getElementById("debug").insertAdjacentHTML('beforeend', JSON.stringify(newOrder));
+    document.getElementById("debug").insertAdjacentHTML('beforeend', JSON.stringify(customer.order));
 });
