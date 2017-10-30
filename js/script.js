@@ -181,8 +181,9 @@ function Restaurant() {
 
 
 var burgerTown = new Restaurant();
-var newOrder = new FoodOrder();
+
 // Wait for the HTML to load and do some stuff
 document.addEventListener("DOMContentLoaded", function (event) {
+    var newOrder = new FoodOrder();
     document.getElementById("debug").insertAdjacentHTML('beforeend', JSON.stringify(newOrder));
 });
