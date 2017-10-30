@@ -1,4 +1,4 @@
-function queue() {
+function Queue() {
     //basic, inefficient, queue function
     this.list = [];
     this.addTo = function (x) {
@@ -28,17 +28,15 @@ function Clock() {
     this.increment = function () {
         time = time + speed;
         document.getElementById('timeDisplay').innerHTML = time.toString();
-        console.log(time);
     };
 
     this.stop = function () {
         clearInterval(this.c);
     }
     this.start = function () {
-
         this.c = setInterval(this.increment, 30);
     }
-};
+}
 
 this.setSpeed = function (x) {
 
@@ -46,7 +44,7 @@ this.setSpeed = function (x) {
 }
 
 
-function grill() {
+function Grill() {
     //grill class
     var temp = 0;
     var mode = 'off';
@@ -63,7 +61,7 @@ function grill() {
     }
 };
 
-function fryer() {
+function Fryer() {
     //fryer class constructor
     var temp = 0;
     var mode = 'off';
@@ -85,7 +83,7 @@ function fryer() {
     }
 };
 
-function cupboard(x) {
+function Cupboard(x) {
     //cupboard class constructor
 
     this.contents = [
@@ -115,7 +113,7 @@ function cupboard(x) {
 
 }
 
-function station(list) {
+function Station(list) {
     //station class constructor
 
     this.display = function () {
@@ -172,10 +170,10 @@ function ticketGenerator() {
 }
 
 
-function restaurant() {
+function Restaurant() {
 
     this.clock = new Clock;
-    this.ticketqueue = new queue;
+    this.ticketqueue = new Queue;
     this.ticketmachine = new ticketGenerator;
     this.clock.start()
 
@@ -214,4 +212,4 @@ var menu = {
 
 
 
-var burgerTown = new restaurant()
+var burgerTown = new Restaurant();
