@@ -27,15 +27,16 @@ function Clock() {
     }
     this.increment = function () {
         time = time + speed;
-        document.getElementById('timeDisplay').innerHTML = time.toString();
+        document.getElementById('clockDisplay').innerHTML = time.toString();
     };
-
+    
     this.stop = function () {
         clearInterval(this.c);
     }
     this.start = function () {
         this.c = setInterval(this.increment, 30);
     }
+    
 }
 
 this.setSpeed = function (x) {
@@ -127,7 +128,7 @@ function Station(list) {
 
 }
 
-function ticketGenerator() {
+function TicketGenerator() {
     //generates tickets for the restaurant
     this.createSeed = function (x) {
 
@@ -174,8 +175,8 @@ function Restaurant() {
 
     this.clock = new Clock;
     this.ticketqueue = new Queue;
-    this.ticketmachine = new ticketGenerator;
-    this.clock.start()
+    this.ticketmachine = new TicketGenerator;
+    //this.clock.start();
 
     while (this.clock.time < 1000) {
         setTimeout(console.log(this.ticketmachine.next()), 300)
