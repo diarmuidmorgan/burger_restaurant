@@ -1,16 +1,33 @@
-
-function FoodOrder() {    
+function FoodOrder(hunger) {
+    this.items = []
+    this.orderSize = hunger
+    this.orderTotal = 0
     // Constructor for a food order
     // Should function more dynamically, taking a hunger parameter and assembling accordingly.
+    for (i = 0; i < this.orderSize; i++) {
+        this.items.push(randomSelection(menu.main))
+    }
+
+    this.items.push(randomSelection(menu.side))
+    this.items.push(randomSelection(menu.sauce))
+    this.items.push(randomSelection(menu.drink))
+    
+    for (item in this.order) {
+        this.orderTotal += this.order[i].PRICE
+    }
+    
+
+    /* 
     this.main = randomSelection(menu.main)
     this.side = randomSelection(menu.side)
     this.sauce = randomSelection(menu.sauce)
     this.drink = randomSelection(menu.drink)
     
     this.orderTotal = this.main.PRICE + this.side.PRICE + this.sauce.PRICE + this.drink.PRICE
-    
+    */
+
     this.completed = false
-    
+
     /*
     // Orders should eventually be completed in increments
     // according to skill of cook, with 100 being completed
