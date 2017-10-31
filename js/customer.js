@@ -1,8 +1,18 @@
 function Customer() {
     // Constructor for a customer
     // Should be able to customise order more, e.g. omitting or ordering multiples
-    this.order = new FoodOrder()
-    this.anger = 0
-    renderOrder(this.order)
+
+    // Returns a random number biased towards min
+    function biasedRandom(min, max) {
+        return Math.round(max / (Math.random() * max + min));
+    }
+
+    this.anger = 60
+    this.hunger = biasedRandom(20,100) + 1
+    this.order = new FoodOrder(this.hunger)
+
+
+
+
 
 }

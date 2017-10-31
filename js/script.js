@@ -19,31 +19,27 @@ function Queue() {
 function Clock() {
     //basic clock class for the restaurant
     var time = 0
-    var speed = 1000 // Speed in milliseconds
 
-    this.time = function () {
-        return time;
-    }
     this.increment = function () {
-        time = time + (speed / 1000);
+        time = time + (GAME_SPEED / 1000);
         document.getElementById('clockDisplay').innerHTML = time.toString();
-        
-        gameLoop()
 
+        // Calls the game loop every tick
+        gameLoop()
     };
 
     this.stop = function () {
         clearInterval(this.c);
     }
     this.start = function () {
-        this.c = setInterval(this.increment, speed);
+        clearInterval(this.c)
+        this.c = setInterval(this.increment, GAME_SPEED);
     }
 
 }
 
 this.setSpeed = function (x) {
-
-    speed = x;
+    GAME_SPEED = x;
 }
 
 function TicketGenerator() {
@@ -85,12 +81,12 @@ function TicketGenerator() {
 }
 
 function Restaurant() {
-
+    // Constructor for the restaurant class
     this.clock = new Clock;
     this.ticketqueue = new Queue;
     this.ticketmachine = new TicketGenerator;
+
     this.netEarning = 0;
-    
     this.customerWalkouts = 0;
     this.customerServed = 0;
     this.queue = []

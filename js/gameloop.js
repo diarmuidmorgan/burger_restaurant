@@ -3,11 +3,11 @@ function gameLoop() {
     for (var customer in burgerTown.queue) {
 
         // Looks at whether the order is fulfilled, makes them angry if it's not.
-        if (burgerTown.queue[customer].order.completed == true) {
+        if (burgerTown.queue[customer].order.completion === 100) {
             console.log("Order completed")
             burgerTown.netEarning += customer.order.orderTotal;
             burgerTown.queue.splice(customer, 1)
-                        burgerTown.customerServed += 1
+            burgerTown.customerServed += 1
         } else {
             burgerTown.queue[customer].anger += 5;
         }
@@ -20,11 +20,12 @@ function gameLoop() {
         }
     }
     // Random chance for a customer to arrive each tick
-    if (Math.random() >= 0.5) {
+    if (Math.random() <= CUSTOMER_PROB) {
         console.log("A customer has arrived.")
         burgerTown.queue.push(new Customer());
     }
 
     // Redrawing other HTML stuff
-    renderStatistics();
+    renderOrder(burgerTown.queue[burgerTown.queue.length - 1].order) // The most recent order
+    renderStatistics(); // Miscellaneous information
 }

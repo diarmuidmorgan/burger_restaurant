@@ -1,25 +1,45 @@
+function FoodOrder(hunger) {
+    // Constructor for ordering food
+    this.items = []
+    this.orderSize = hunger
+    this.orderTotal = 0
 
-function FoodOrder() {    
-    // Constructor for a food order
-    this.main = randomSelection(menu.main)
-    this.side = randomSelection(menu.side)
-    this.sauce = randomSelection(menu.sauce)
-    this.drink = randomSelection(menu.drink)
+    // Function to provide random number based on a seed.
+    var seededRandom = function (x) {
+        return x * Math.random() << 0;
+    };
     
-    this.orderTotal = this.main.PRICE + this.side.PRICE + this.sauce.PRICE + this.drink.PRICE
-    
-    this.completed = false
-    
-    /*
+    // Selects semi-randomised number of items from each section of menu.
+    for (var i = 0; i < seededRandom(this.orderSize); i++) {
+        this.items.push(randomSelection(menu.main))
+    }
+
+    for (var i = 0; i < seededRandom(this.orderSize); i++) {
+        this.items.push(randomSelection(menu.side))
+    }
+
+    for (var i = 0; i < seededRandom(this.orderSize); i++) {
+        this.items.push(randomSelection(menu.sauce))
+    }
+
+    for (var i = 0; i < seededRandom(this.orderSize); i++) {
+        this.items.push(randomSelection(menu.drink))
+    }
+
+    // Totals the price of all items
+    for (item in this.items) {
+        this.orderTotal += this.items[item].PRICE
+    }
+
+
     // Orders should eventually be completed in increments
     // according to skill of cook, with 100 being completed
     this.completion = 0
-    */
 
     // Function to randomly select an item from the menu
     function randomSelection(menuItem) {
         var props = Object.getOwnPropertyNames(menuItem)
-        return menuItem[props[props.length * Math.random() << 0]];
+        return menuItem[props[seededRandom(props.length)]];
     };
 
 }
