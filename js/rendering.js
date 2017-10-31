@@ -1,10 +1,13 @@
 function renderOrder(order) {
     // Function to output the order as HTML
     // Currently not clearing between orders
-    receiptBox = document.getElementById('receiptBox')
+    var mostRecentOrder = document.getElementById('mostRecentOrder')
+    var HTML = ''
     for (item in order.items) {
-        receiptBox.insertAdjacentHTML('beforeend', order.items[item].NAME + order.items[item].PRICE + '<br>')
+        HTML += order.items[item].NAME + " " + order.items[item].PRICE + '<br>'
     }
+    HTML += '<br>TOTAL: ' + order.orderTotal
+    mostRecentOrder.innerHTML = HTML
 }
 
 

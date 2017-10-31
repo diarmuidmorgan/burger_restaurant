@@ -27,9 +27,10 @@ function FoodOrder(hunger) {
     }
 
     // Totals the price of all items
-    for (item in this.order) {
-        this.orderTotal += this.order[i].PRICE
+    for (item in this.items) {
+        this.orderTotal += this.items[item].PRICE
     }
+
 
     // Orders should eventually be completed in increments
     // according to skill of cook, with 100 being completed
