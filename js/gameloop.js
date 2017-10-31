@@ -3,7 +3,7 @@ function gameLoop() {
     for (var customer in burgerTown.queue) {
 
         // Looks at whether the order is fulfilled, makes them angry if it's not.
-        if (burgerTown.queue[customer].order.completed == true) {
+        if (burgerTown.queue[customer].order.completion === 100) {
             console.log("Order completed")
             burgerTown.netEarning += customer.order.orderTotal;
             burgerTown.queue.splice(customer, 1)
