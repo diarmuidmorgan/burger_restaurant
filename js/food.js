@@ -1,26 +1,28 @@
 function FoodOrder(hunger) {
+    // Constructor for ordering food
     this.items = []
     this.orderSize = hunger
     this.orderTotal = 0
 
-    // Currently not working properly - should be a function. 
-    var randomisedSize = this.orderSize * Math.random() << 0
-        
+    // Function to provide random number based on a seed.
+    var seededRandom = function (x) {
+        return x * Math.random() << 0;
+    };
+    
     // Selects semi-randomised number of items from each section of menu.
-    // Currently not working.
-    for (i = 0; i < randomisedSize; i++) {
+    for (var i = 0; i < seededRandom(this.orderSize); i++) {
         this.items.push(randomSelection(menu.main))
     }
 
-    for (i = 0; i < randomisedSize; i++) {
+    for (var i = 0; i < seededRandom(this.orderSize); i++) {
         this.items.push(randomSelection(menu.side))
     }
 
-    for (i = 0; i < randomisedSize; i++) {
+    for (var i = 0; i < seededRandom(this.orderSize); i++) {
         this.items.push(randomSelection(menu.sauce))
     }
 
-    for (i = 0; i < randomisedSize; i++) {
+    for (var i = 0; i < seededRandom(this.orderSize); i++) {
         this.items.push(randomSelection(menu.drink))
     }
 
@@ -36,7 +38,7 @@ function FoodOrder(hunger) {
     // Function to randomly select an item from the menu
     function randomSelection(menuItem) {
         var props = Object.getOwnPropertyNames(menuItem)
-        return menuItem[props[props.length * Math.random() << 0]];
+        return menuItem[props[seededRandom(props.length)]];
     };
 
 }
