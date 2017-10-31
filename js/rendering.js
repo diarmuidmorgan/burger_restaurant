@@ -15,7 +15,7 @@ function renderStatistics() {
     debug.insertAdjacentHTML('beforeend', 'Walkouts: ' + burgerTown.customerWalkouts + '<br>');
     debug.insertAdjacentHTML('beforeend', 'Queue length: ' + burgerTown.queue.length + '<br>');     
     
-    console.log(burgerTown.queue[0])
+    console.log(burgerTown.queue[burgerTown.queue.length - 1])
     }
 
 }

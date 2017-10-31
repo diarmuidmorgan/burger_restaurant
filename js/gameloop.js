@@ -26,5 +26,6 @@ function gameLoop() {
     }
 
     // Redrawing other HTML stuff
-    renderStatistics();
+    renderOrder(burgerTown.queue[burgerTown.queue.length - 1].order) // The most recent order
+    renderStatistics(); // Miscellaneous information
 }
