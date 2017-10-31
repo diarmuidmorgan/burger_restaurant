@@ -20,7 +20,7 @@ function gameLoop() {
         }
     }
     // Random chance for a customer to arrive each tick
-    if (Math.random() >= 0) {
+    if (Math.random() <= CUSTOMER_PROB) {
         console.log("A customer has arrived.")
         burgerTown.queue.push(new Customer());
     }
