@@ -8,7 +8,7 @@ function Customer() {
     }
 
     this.anger = 60
-    this.hunger = weightedRandom(20,100) + 1
+    this.hunger = biasedRandom(20,100) + 1
     this.order = new FoodOrder(this.hunger)
     renderOrder(this.order)
 

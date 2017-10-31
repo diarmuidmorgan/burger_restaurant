@@ -13,7 +13,9 @@ function renderStatistics() {
     var debug = document.getElementById('debug');
     debug.innerHTML = 'Net earning: ' + burgerTown.netEarning + '<br>';
     debug.insertAdjacentHTML('beforeend', 'Walkouts: ' + burgerTown.customerWalkouts + '<br>');
-    debug.insertAdjacentHTML('beforeend', 'Queue length: ' + burgerTown.queue.length + '<br>');        
+    debug.insertAdjacentHTML('beforeend', 'Queue length: ' + burgerTown.queue.length + '<br>');     
+    
+    console.log(burgerTown.queue[0])
     }
 
 }
