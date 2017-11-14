@@ -87,9 +87,11 @@ function Restaurant() {
     this.ticketmachine = new TicketGenerator;
 
     this.netEarning = 0;
+    this.bankBalance = 0;
+    
     this.customerWalkouts = 0;
     this.customerServed = 0;
-    
+
     this.queue = [];
     this.staff = [];
 
@@ -99,6 +101,3 @@ function Restaurant() {
 }
 
 var burgerTown = new Restaurant();
-burgerTown.staff.push(new Chef(0,0,0,0,0,0,false,false));
-burgerTown.staff.push(new Manager(0,0,0,0,0,0,false,false));
-burgerTown.staff.push(new Cashier(0,0,0,0,0,0,false,false));

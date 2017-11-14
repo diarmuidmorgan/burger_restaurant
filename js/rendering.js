@@ -13,12 +13,13 @@ function renderOrder(order) {
 
 function renderStatistics() {
     if (DEBUG_MODE == 1) {
-    var debug = document.getElementById('debug');
-    debug.innerHTML = 'Net earning: ' + burgerTown.netEarning + '<br>';
-    debug.insertAdjacentHTML('beforeend', 'Walkouts: ' + burgerTown.customerWalkouts + '<br>');
-    debug.insertAdjacentHTML('beforeend', 'Queue length: ' + burgerTown.queue.length + '<br>');     
-    
-    console.log(burgerTown.queue[burgerTown.queue.length - 1])
+        var debug = document.getElementById('debug');
+        debug.innerHTML = 'Net earning: ' + burgerTown.netEarning + '<br>';
+        debug.insertAdjacentHTML('beforeend', 'Walkouts: ' + burgerTown.customerWalkouts + '<br>');
+        debug.insertAdjacentHTML('beforeend', 'Queue length: ' + burgerTown.queue.length + '<br>');
+        debug.insertAdjacentHTML('beforeend', 'Employees: ' + burgerTown.staff.length + '<br>');
+
+        console.log(burgerTown.queue[burgerTown.queue.length - 1])
     }
 
 }

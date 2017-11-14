@@ -35,9 +35,16 @@ function Cashier(skill, hunger, motivation, stress, fatigue, agitator, unionised
     this.wage = 6.5 + Math.floor(skill)
 }
 
+function hireEmployee(role) {
+    burgerTown.staff.push(new role(0, 0, 0, 0, 0, 0, false, false));
+}
+
 // Prototype constructors and reference
 Manager.prototype = Object.create(Employee.prototype);
 Manager.prototype.constructor = Manager;
 
 Chef.prototype = Object.create(Employee.prototype);
 Chef.prototype.constructor = Chef;
+
+Cashier.prototype = Object.create(Employee.prototype);
+Cashier.prototype.constructor = Cashier;
