@@ -26,6 +26,11 @@ function FoodOrder(hunger) {
         this.items.push(randomSelection(menu.drink))
     }
 
+    // Add a random side if previous selection failed.
+    if (this.items.length == 0){
+        this.items.push(randomSelection(menu.side))
+    }
+    
     // Totals the price of all items
     for (item in this.items) {
         this.orderTotal += this.items[item].PRICE
