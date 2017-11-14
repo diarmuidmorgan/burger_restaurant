@@ -21,8 +21,14 @@ function gameLoop() {
     }
     
     for (var staffMember in burgerTown.staff) {
-        // Cook some food
-        break
+        switch (burgerTown.staff[staffMember].constructor.name) {
+            case "Chef":
+                // Cook some food
+                break;
+            case "Manager":
+                // Do some managing
+                break;
+        }
     }
     
     // Random chance for a customer to arrive each tick
