@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+}
+
+p {
+	font-size:10px;
+	
+	
+	
+}
+.grillbox{
+	
+	cursor:pointer;
+	width:10%;
+	display:inline; float:left; 
+}
+.grillbox:hover{
+	
+	background-color:red;
+	
+}
+
+
+
+.btn:hover {background-color:lightgrey;}
