@@ -1,10 +1,14 @@
-function Employee(skill, rank, hunger, motivation, agitator, unionised) {
+function Employee(skill, hunger, motivation, stress, fatigue, agitator, unionised) {
     // Constructor for an employee
     this.skill = skill;
-    this.rank = rank;
+    // Begining at 0.0, incrementing periodically
+    // Chefs with every succesfull cooking action
+    // Managers with every customer served
 
     this.hunger = hunger;
     this.motivation = motivation;
+    this.stress = stress;
+    this.fatigue = fatigue;
 
     this.agitator = agitator;
     this.unionised = unionised;
@@ -13,14 +17,16 @@ function Employee(skill, rank, hunger, motivation, agitator, unionised) {
 
 }
 
-function Chef(skill, rank, hunger, motivation, agitator, unionised) {
+function Chef(skill, hunger, motivation, stress, fatigue, agitator, unionised) {
     // Constructor for a chef
-    Employee.call(this, skill, rank, hunger, motivation, agitator, unionised)
+    Employee.call(this, skill, hunger, motivation, stress, fatigue, agitator, unionised)
+    this.wage = 6.5 + Math.floor(skill)
 }
 
-function Manager(skill, rank, hunger, motivation, agitator, unionised) {
+function Manager(skill, hunger, motivation, stress, fatigue, agitator, unionised) {
     // Constructor for a manager
-    Employee.call(this, skill, rank, hunger, motivation, agitator, unionised)
+    Employee.call(this, skill, hunger, motivation, stress, fatigue, agitator, unionised)
+    this.wage = 7.5 + Math.floor(skill)
 }
 
 

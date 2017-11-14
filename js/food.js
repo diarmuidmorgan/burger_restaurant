@@ -116,13 +116,13 @@ var menu = {
             "NAME": "Coke",
             "PRICE": 3.50,
             "COLD": true,
-            "TIME": 5;
+            "TIME": 5,
         },
         "WATER": {
             "NAME": "Mineral Water",
             "PRICE": 2.50,
             "COLD": true,
-            "TIME": 5;
+            "TIME": 5,
         },
         "COFFEE": {
             "NAME": "Coffee",

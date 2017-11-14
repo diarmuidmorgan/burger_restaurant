@@ -91,7 +91,7 @@ function Restaurant() {
     this.customerServed = 0;
     
     this.queue = [];
-    this.staff = []
+    this.staff = [];
 
     while (this.clock.time < 1000) {
         setTimeout(console.log(this.ticketmachine.next()), 300)
@@ -99,3 +99,5 @@ function Restaurant() {
 }
 
 var burgerTown = new Restaurant();
+burgerTown.staff.push(new Chef(0,0,0,0,0,0,false,false));
+burgerTown.staff.push(new Manager(0,0,0,0,0,0,false,false));

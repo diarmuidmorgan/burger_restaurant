@@ -19,6 +19,12 @@ function gameLoop() {
             console.log("The customer got too irate and walked out.")
         }
     }
+    
+    for (var staffMember in burgerTown.staff) {
+        // Cook some food
+        break
+    }
+    
     // Random chance for a customer to arrive each tick
     if (Math.random() <= CUSTOMER_PROB) {
         console.log("A customer has arrived.")
