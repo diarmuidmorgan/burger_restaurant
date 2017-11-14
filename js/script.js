@@ -89,7 +89,9 @@ function Restaurant() {
     this.netEarning = 0;
     this.customerWalkouts = 0;
     this.customerServed = 0;
-    this.queue = []
+    
+    this.queue = [];
+    this.staff = []
 
     while (this.clock.time < 1000) {
         setTimeout(console.log(this.ticketmachine.next()), 300)
