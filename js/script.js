@@ -101,3 +101,4 @@ function Restaurant() {
 var burgerTown = new Restaurant();
 burgerTown.staff.push(new Chef(0,0,0,0,0,0,false,false));
 burgerTown.staff.push(new Manager(0,0,0,0,0,0,false,false));
+burgerTown.staff.push(new Cashier(0,0,0,0,0,0,false,false));

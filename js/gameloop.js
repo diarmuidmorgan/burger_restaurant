@@ -28,6 +28,9 @@ function gameLoop() {
             case "Manager":
                 // Do some managing
                 break;
+            case "Cashier":
+                // $$
+                break;
         }
     }
     

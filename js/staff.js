@@ -29,6 +29,11 @@ function Manager(skill, hunger, motivation, stress, fatigue, agitator, unionised
     this.wage = 7.5 + Math.floor(skill)
 }
 
+function Cashier(skill, hunger, motivation, stress, fatigue, agitator, unionised) {
+    // Constructor for a cashier
+    Employee.call(this, skill, hunger, motivation, stress, fatigue, agitator, unionised)
+    this.wage = 6.5 + Math.floor(skill)
+}
 
 // Prototype constructors and reference
 Manager.prototype = Object.create(Employee.prototype);
