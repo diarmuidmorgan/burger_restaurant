@@ -45,74 +45,90 @@ function FoodOrder(hunger) {
 }
 
 var menu = {
-    main: {
-        'JDBURGER': {
-            'NAME': 'JD Burger',
-            'PRICE': 5.90,
-            'GRILLED': true,
+    "main": {
+        "JDBURGER": {
+            "NAME": "JD Burger",
+            "PRICE": 5.90,
+            "GRILLED": true,
+            "TEMP": 200,
+            "TIME": 42,
         },
-        'MAPLEBURGER': {
-            'NAME': 'Maple Burger',
-            'PRICE': 6.40,
-            'GRILLED': true,
+        "MAPLEBURGER": {
+            "NAME": 'Maple Burger',
+            "PRICE": 6.40,
+            "GRILLED": true,
+            "TEMP": 200,
+            "TIME": 42,
         },
-        'MONSTERBURGER': {
-            'NAME': 'Monster Burger',
-            'PRICE': 9.90,
-            'GRILLED': true,
+        "MONSTERBURGER": {
+            "NAME": "Monster Burger",
+            "PRICE": 9.90,
+            "GRILLED": true,
+            "TEMP": 200,
+            "TIME": 112,
         },
-        'RIBEYE': {
-            'NAME': 'Ribeye',
-            'PRICE': 6.40,
-            'GRILLED': true,
+        "RIBEYE": {
+            "NAME": "Ribeye",
+            "PRICE": 6.40,
+            "GRILLED": true,
+            "TEMP": 200,
+            "TIME": 112,
         }
     },
-    side: {
-        'CHIPS': {
-            'NAME': 'Chips',
-            'PRICE': 4.00,
-            'FRIED': true,
+    "side": {
+        "CHIPS": {
+            "NAME": "Chips",
+            "PRICE": 4.00,
+            "FRIED": true,
+            "TEMP": 176,
+            "TIME": 180,
+
         },
-        'RINGS': {
-            NAME: 'Onion Rings',
-            PRICE: 6.50,
-            FRIED: true,
+        "RINGS": {
+            "NAME": "Onion Rings",
+            "PRICE": 6.50,
+            "FRIED": true,
+            "TEMP": 176,
+            "TIME": 180,
         },
-        'SALAD': {
-            NAME: 'Salad',
-            PRICE: 5.50,
+        "SALAD": {
+            "NAME": "Salad",
+            "PRICE": 5.50,
         },
     },
-    sauce: {
-        'KETCHUP': {
-            'NAME': 'Ketchup',
-            'PRICE': 2.00,
+    "sauce": {
+        "KETCHUP": {
+            "NAME": "Ketchup",
+            "PRICE": 2.00,
         },
-        'HOTSAUCE': {
-            'NAME': 'Hot Sauce',
-            'PRICE': 3.50,
+        "HOTSAUCE": {
+            "NAME": "Hot Sauce",
+            "PRICE": 3.50,
         },
 
-        'CHIPOTLE': {
-            'NAME': 'Chipotle',
-            'PRICE': 4.00,
+        "CHIPOTLE": {
+            "NAME": "Chipotle",
+            "PRICE": 4.00,
         },
     },
-    drink: {
-        'COKE': {
-            'NAME': 'Coke',
-            'PRICE': 3.50,
-            'COLD': true,
+    "drink": {
+        "COKE": {
+            "NAME": "Coke",
+            "PRICE": 3.50,
+            "COLD": true,
+            "TIME": 5;
         },
-        'WATER': {
-            'NAME': 'Mineral Water',
-            'PRICE': 2.50,
-            'COLD': true,
+        "WATER": {
+            "NAME": "Mineral Water",
+            "PRICE": 2.50,
+            "COLD": true,
+            "TIME": 5;
         },
-        'COFFEE': {
-            'NAME': 'Coffee',
-            'PRICE': 3.00,
-            'HOT': true,
+        "COFFEE": {
+            "NAME": "Coffee",
+            "PRICE": 3.00,
+            "HOT": true,
+            "TIME": 5,
         },
     }
 }
