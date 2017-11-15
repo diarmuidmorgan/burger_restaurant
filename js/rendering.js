@@ -10,6 +10,18 @@ function renderOrder(order) {
     mostRecentOrder.innerHTML = HTML
 }
 
+function renderStockCupboard(cupboard) {
+    // Renders the contents of the stock cupboard as HTML
+    var stockListing = document.getElementById('stockListing')
+    var HTML = ''
+    
+    for (item in cupboard) {
+        HTML += cupboard[item].NAME + " " + cupboard[item].QUANTITY + '<br>'
+    }
+    
+    stockListing.innerHTML = HTML
+}
+
 
 function renderStatistics() {
     if (DEBUG_MODE == 1) {
@@ -19,7 +31,7 @@ function renderStatistics() {
         debug.insertAdjacentHTML('beforeend', 'Queue length: ' + burgerTown.queue.length + '<br>');
         debug.insertAdjacentHTML('beforeend', 'Employees: ' + burgerTown.staff.length + '<br>');
         debug.insertAdjacentHTML('beforeend', 'Bank balance: ' + burgerTown.bankBalance + '<br>');
-
+        console.log(burgerTown.cupboard)
         console.log(burgerTown.queue[burgerTown.queue.length - 1])
     }
 

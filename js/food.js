@@ -148,61 +148,73 @@ var menu = {
 
 var components = {
     "cokeMix": {
+        "NAME": "Coke mix",
         "COSTPRICE": 0.1,
         "LOCATION": "drinkDispenser",
         "QUANTITY": 0,
     },
     "bottleWater": {
+        "NAME": "Bottled water",
         "COSTPRICE": 0.1,
         "LOCATION": "fridge",
         "QUANTITY": 0,
     },
     "coffee": {
+        "NAME": "Ground coffee",
         "COSTPRICE": 0.1,
         "LOCATION": "cupboard",
         "QUANTITY": 0,
     },
     "cup": {
+        "NAME": "Paper cup",
         "COSTPRICE": 0.1,
         "LOCATION": "cupboard",
         "QUANTITY": 0,
     },
     "fries": {
+        "NAME": "Frozen chips",
         "COSTPRICE": 0.2,
         "LOCATION": "freezer",
         "QUANTITY": 0,
     },
     "onionRings": {
+        "NAME": "Frozen onion rings",
         "COSTPRICE": 0.3,
         "LOCATION": "freezer",
         "QUANTITY": 0,
     },
     "salad": {
+        "NAME": "Pre-bagged salad",
         "COSTPRICE": 0.3,
         "LOCATION": "fridge",
         "QUANTITY": 0,
     },
     "bun": {
+        "NAME": "Sliced bun",
         "COSTPRICE": 0.05,
         "LOCATION": "cupboard",
         "QUANTITY": 0,
     },
     "pattie": {
+        "NAME": "Frozen beef pattie",
         "COSTPRICE": 0.1,
         "LOCATION": "freezer",
         "QUANTITY": 0,
     },
     "ketchup": {
+        "NAME": "Ketchup",
         "COSTPRICE": 0.1,
         "LOCATION": "cupboard",
         "QUANTITY": 0,
     },
     "hotSauce": {
+        "NAME": "Hot sauce",
         "COSTPRICE": 0.1,
         "LOCATION": "cupboard",
         "QUANTITY": 0,
     },
     "chipotle": {
+        "NAME": "Chipotle",
         "COSTPRICE": 0.2,
         "LOCATION": "cupboard",
         "QUANTITY": 0,
