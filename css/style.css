@@ -1,6 +1,4 @@
-#display {
-    
-}  
+#display {}
 
 #clock {
     width: 100%;
@@ -19,6 +17,16 @@
     font-family: monospace;
     width: 200px;
     height: 300px;
+    float: left;
     background-color: linen;
-    margin: 0 0 0 auto;
+    margin-left: 100px;
+}
+
+#stockBox {
+    font-family: monospace;
+    width: 200px;
+    height: 300px;
+    float: left;
+    background-color: linen;
+
 }
