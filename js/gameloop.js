@@ -21,10 +21,13 @@ function gameLoop() {
     }
 
     for (var staffMember in burgerTown.staff) {
+
         switch (burgerTown.staff[staffMember].constructor.name) {
+
             case "Chef":
-                // Cook some food
-                break;
+                burgerTown.staff[staffMember].cookOrder(burgerTown.queue[0].order)
+
+
             case "Manager":
                 // Do some managing
                 break;
