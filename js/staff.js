@@ -22,7 +22,7 @@ function Chef(skill, hunger, motivation, stress, fatigue, agitator, unionised) {
     Employee.call(this, skill, hunger, motivation, stress, fatigue, agitator, unionised)
     this.wage = 6.5 + Math.floor(skill)
 
-    this.cookOrder(order){
+    this.cookOrder = function(order){
       // Function to cook an order
       for (item in order){
         if (order[item].FRIED == true){
@@ -38,9 +38,8 @@ function Chef(skill, hunger, motivation, stress, fatigue, agitator, unionised) {
             order.completed = 100;
           };
         }
-      }
     }
-}
+}};
 
 function Manager(skill, hunger, motivation, stress, fatigue, agitator, unionised) {
     // Constructor for a manager

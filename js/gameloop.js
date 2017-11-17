@@ -3,7 +3,7 @@ function gameLoop() {
     for (var customer in burgerTown.queue) {
 
         // Looks at whether the order is fulfilled, makes them angry if it's not.
-        if (burgerTown.queue[customer].order.completion === 100) {
+        if (burgerTown.queue[customer].order.completion == 100) {
             console.log("Order completed")
             burgerTown.netEarning += customer.order.orderTotal;
             burgerTown.queue.splice(customer, 1)
@@ -25,8 +25,8 @@ function gameLoop() {
         switch (burgerTown.staff[staffMember].constructor.name) {
 
             case "Chef":
-                burgerTown.staff[staffMember].cookOrder(burgerTown.queue[0].order)
-
+                burgerTown.staff[staffMember].cookOrder(burgerTown.queue[0].order);
+                break;
 
             case "Manager":
                 // Do some managing
@@ -44,7 +44,9 @@ function gameLoop() {
     }
 
     // Redrawing other HTML stuff
-    renderOrder(burgerTown.queue[burgerTown.queue.length - 1].order) // The most recent order
+    if (burgerTown.queue.length > 0){
+      renderOrder(burgerTown.queue[burgerTown.queue.length - 1].order) // The most recent order
+    }
     renderStockCupboard(burgerTown.cupboard) // The stock cupboard
     renderStatistics(); // Miscellaneous information
 }
