@@ -26,16 +26,16 @@ function Chef(skill, hunger, motivation, stress, fatigue, agitator, unionised) {
       // Function to cook an order
       for (item in order){
         if (order[item].FRIED == true){
-          order.completed = 100
+          order.completion = 100
           // fryer(order[item]);
           break;
         } else {
           if (order[item].GRILLED == true) {
-          order.completed = 100
+          order.completion = 100
           //grill(order[item]);
           break;
         } else {
-            order.completed = 100;
+            order.completion = 100;
           };
         }
     }

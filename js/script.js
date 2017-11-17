@@ -19,6 +19,7 @@ function Queue() {
 function Clock() {
     //basic clock class for the restaurant
     var time = 0
+    
 
     this.increment = function () {
         time = time + (GAME_SPEED / 1000);
@@ -36,11 +37,9 @@ function Clock() {
         this.c = setInterval(this.increment, GAME_SPEED);
     }
 
-}
-
-this.setSpeed = function (x) {
-    GAME_SPEED = x;
-}
+    this.setSpeed = function (x) {
+      GAME_SPEED = x;
+}}
 
 function TicketGenerator() {
     //generates tickets for the restaurant

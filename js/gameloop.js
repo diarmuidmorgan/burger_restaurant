@@ -5,7 +5,7 @@ function gameLoop() {
         // Looks at whether the order is fulfilled, makes them angry if it's not.
         if (burgerTown.queue[customer].order.completion == 100) {
             console.log("Order completed")
-            burgerTown.netEarning += customer.order.orderTotal;
+            burgerTown.netEarning += burgerTown.queue[customer].order.orderTotal;
             burgerTown.queue.splice(customer, 1)
             burgerTown.customerServed += 1
         } else {
@@ -22,7 +22,8 @@ function gameLoop() {
 
     for (var staffMember in burgerTown.staff) {
 
-        switch (burgerTown.staff[staffMember].constructor.name) {
+      if (burgerTown.queue.length>0){
+            switch (burgerTown.staff[staffMember].constructor.name) {
 
             case "Chef":
                 burgerTown.staff[staffMember].cookOrder(burgerTown.queue[0].order);
@@ -36,6 +37,8 @@ function gameLoop() {
                 break;
         }
     }
+    else {break;}
+  }
 
     // Random chance for a customer to arrive each tick
     if (Math.random() <= CUSTOMER_PROB) {
