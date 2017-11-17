@@ -19,6 +19,21 @@ function gameLoop() {
             console.log("The customer got too irate and walked out.")
         }
     }
+
+    for (var staffMember in burgerTown.staff) {
+        switch (burgerTown.staff[staffMember].constructor.name) {
+            case "Chef":
+                // Cook some food
+                break;
+            case "Manager":
+                // Do some managing
+                break;
+            case "Cashier":
+                // $$
+                break;
+        }
+    }
+
     // Random chance for a customer to arrive each tick
     if (Math.random() <= CUSTOMER_PROB) {
         console.log("A customer has arrived.")
@@ -27,5 +42,6 @@ function gameLoop() {
 
     // Redrawing other HTML stuff
     renderOrder(burgerTown.queue[burgerTown.queue.length - 1].order) // The most recent order
+    renderStockCupboard(burgerTown.cupboard) // The stock cupboard
     renderStatistics(); // Miscellaneous information
 }

@@ -1,0 +1,18 @@
+Implement a hot cupboard for holding food
+Chefs should add to the hot cupboard, cashiers remove from it
+Cashiers should assemble orders
+Cashiers should pour drinks
+
+Add stock tracking, stock ordering
+Variable sizes of some menu items
+
+Implement freezers
+
+Make gameplay faster, switch clock to 24hr one.  Add date and time.
+Employees should be paid at the end of each month.
+
+Employees should be generated with somewhat random stats.
+Add way to sack employees.
+Add union agitators.
+
+Some way to save the game state

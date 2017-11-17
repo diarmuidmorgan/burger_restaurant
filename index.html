@@ -6,13 +6,12 @@
     <script type="text/javascript" src="js/gameloop.js"></script>
     <script type="text/javascript" src="js/rendering.js"></script>
     <script type="text/javascript" src="js/cooking.js"></script>
+    <script type="text/javascript" src="js/staff.js"></script>
     <script type="text/javascript" src="js/food.js"></script>
     <script type="text/javascript" src="js/customer.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
-
-
 
 </head>
 
@@ -29,6 +28,23 @@
             </button>
         </div>
     </div>
+    <div id="employStaff">
+        <button name="hireCashier" onclick="hireEmployee(Cashier)">
+        <p>Hire Cashier</p>
+        </button>
+        <button name="hireCashier" onclick="hireEmployee(Chef)">
+        <p>Hire Chef</p>
+        </button>
+        <button name="hireCashier" onclick="hireEmployee(Manager)">
+        <p>Hire Manager</p>
+        </button>
+    </div>
+    <div id="stockBox">
+        <h3>Stock Cupboard</h3>
+
+    <div id="stockListing">
+        <!-- Stuff here -->
+        </div></div>
     <div id="receiptBox">
         <h3>burgerTown</h3>
         <div id="mostRecentOrder"></div>

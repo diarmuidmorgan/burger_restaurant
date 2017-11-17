@@ -87,9 +87,15 @@ function Restaurant() {
     this.ticketmachine = new TicketGenerator;
 
     this.netEarning = 0;
+    this.bankBalance = OPENING_BALANCE;
+
     this.customerWalkouts = 0;
     this.customerServed = 0;
-    this.queue = []
+
+    this.queue = [];
+    this.staff = [];
+
+    this.cupboard = components;
 
     while (this.clock.time < 1000) {
         setTimeout(console.log(this.ticketmachine.next()), 300)
