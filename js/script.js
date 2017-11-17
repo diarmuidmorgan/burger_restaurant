@@ -92,7 +92,7 @@ function Restaurant() {
     this.customerWalkouts = 0;
     this.customerServed = 0;
 
-    this.queue = [];
+    this.customer_queue = [];
     this.staff = [];
 
     this.cupboard = components;
