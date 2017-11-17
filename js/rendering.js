@@ -31,8 +31,8 @@ function renderStatistics() {
         debug.insertAdjacentHTML('beforeend', 'Queue length: ' + burgerTown.queue.length + '<br>');
         debug.insertAdjacentHTML('beforeend', 'Employees: ' + burgerTown.staff.length + '<br>');
         debug.insertAdjacentHTML('beforeend', 'Bank balance: ' + burgerTown.bankBalance + '<br>');
-        console.log(burgerTown.cupboard)
-        console.log(burgerTown.queue[burgerTown.queue.length - 1])
+ //       console.log(burgerTown.cupboard) // Contents of stock cupboard
+ //       console.log(burgerTown.queue[burgerTown.queue.length - 1]) // Most recent customer
     }
 
 }
