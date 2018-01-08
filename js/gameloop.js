@@ -1,28 +1,31 @@
 function gameLoop() {
 	// Runs through the customers and checks their status
-	if (burgerTown.queue.length > 0) {
-		for (var customer in burgerTown.queue) {
+	for (var customer in burgerTown.queue) {
 
-			// Looks at whether the order is fulfilled, makes them angry if it's not.
-			if (burgerTown.queue[customer].order.completion == 100) {
-				console.log("Order completed")
-				burgerTown.netEarning += burgerTown.queue[customer].order.orderTotal;
-				burgerTown.queue.splice(customer, 1)
-				burgerTown.customerServed += 1
-			} else {
-				burgerTown.queue[customer].anger += 5;
-			}
+		// Looks at whether the order is fulfilled, makes them angry if it's not.
+		if (burgerTown.queue[customer].order.completion == 100) {
+			console.log("Order completed")
 
-			// Customers walk out without paying if they're too angry
-			if (burgerTown.queue[customer].anger >= 80) {
-				burgerTown.queue.splice(customer, 1)
-				burgerTown.customerWalkouts += 1
-				console.log("The customer got too irate and walked out.")
-			}
+		} else {
+			burgerTown.queue[customer].anger += 5;
+		}
+
+		// Customers walk out without paying if they're too angry
+		if (burgerTown.queue[customer].anger >= 80) {
+			burgerTown.queue.splice(customer, 1)
+			burgerTown.customerWalkouts += 1
+			console.log("The customer got too irate and walked out.")
 		}
 	}
 
 	for (var staffMember in burgerTown.staff) {
+		// Increments skill every 60 ticks
+		if (staffmember.hours % 60 == 0) {
+			staffmember.skill += 0.05;
+		}
+
+		staffMember.hours += 1;
+		staffMember.hunger += 1;
 
 		if (burgerTown.queue.length > 0) {
 			switch (burgerTown.staff[staffMember].constructor.name) {
@@ -35,7 +38,7 @@ function gameLoop() {
 					// Do some managing
 					break;
 				case "Cashier":
-					// $$
+					burgerTown.staff[staffmember].checkCompletion(burgerTown.queue[0]);
 					break;
 			}
 		} else {
