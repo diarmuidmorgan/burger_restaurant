@@ -19,7 +19,7 @@ function Queue() {
 function Clock() {
     //basic clock class for the restaurant
     var time = 0
-    
+
 
     this.increment = function () {
         time = time + (GAME_SPEED / 1000);
@@ -41,43 +41,6 @@ function Clock() {
       GAME_SPEED = x;
 }}
 
-function TicketGenerator() {
-    //generates tickets for the restaurant
-    this.createSeed = function (x) {
-
-        return Math.floor((Math.random() * x) + 1);
-    }
-
-    this.ReturnMains = function () {
-
-        var seed = this.createSeed(3);
-        return menu.mains[seed].id;
-
-    }
-    this.ReturnSides = function () {
-
-        var seed = this.createSeed(2);
-        return menu.sides[seed].id;
-
-    }
-    this.ReturnSauces = function () {
-
-        var seed = this.createSeed(2);
-        return menu.sauces[seed].id;
-
-    }
-
-    this.next = function () {
-        var seed = this.createSeed(10);
-        if (seed > 2) {
-            var ticket = this.ReturnMains() + '_' + this.ReturnSides() + '_' + this.ReturnSauces()
-
-        } else {
-
-            return false;
-        }
-    }
-}
 
 function Restaurant() {
     // Constructor for the restaurant class
@@ -86,7 +49,7 @@ function Restaurant() {
     this.ticketmachine = new TicketGenerator;
 
     this.netEarning = 0;
-    this.bankBalance = OPENING_BALANCE;
+    this.bankBalance = 0;
 
     this.customerWalkouts = 0;
     this.customerServed = 0;
