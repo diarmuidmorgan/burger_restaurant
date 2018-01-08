@@ -21,7 +21,8 @@ function gameLoop() {
     }
 
     for (var staffMember in burgerTown.staff) {
-
+      staffMember.hours += 1;
+      staffMember.hunger += 1;
       if (burgerTown.queue.length>0){
             switch (burgerTown.staff[staffMember].constructor.name) {
 

@@ -1,6 +1,7 @@
 function Employee(skill, hunger, motivation, stress, fatigue, agitator, unionised) {
     // Constructor for an employee
     this.skill = skill;
+    this.hours = 0
     // Begining at 0.0, incrementing periodically
     // Chefs with every succesfull cooking action
     // Managers with every customer served
@@ -45,6 +46,17 @@ function Manager(skill, hunger, motivation, stress, fatigue, agitator, unionised
     // Constructor for a manager
     Employee.call(this, skill, hunger, motivation, stress, fatigue, agitator, unionised)
     this.wage = 7.5 + Math.floor(skill)
+    this.pay_wages = function(){
+
+    if (burgerTown.time % 60 == 0){
+      // Pays the staff every 60 ticks
+      for (var i in burgerTown.staff){
+        // Deducts wage * hours from bankBalance
+        burgerTown.bankBalance -= i.wage * i.hours;
+        i.hours=0;
+      }
+    }
+    }
 }
 
 function Cashier(skill, hunger, motivation, stress, fatigue, agitator, unionised) {
