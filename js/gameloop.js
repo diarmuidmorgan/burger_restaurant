@@ -21,13 +21,15 @@ function gameLoop() {
 			switch (burgerTown.staff[staffMember].constructor.name) {
 
 				case "Chef":
-					// Cook food
 					burgerTown.staff[staffMember].cookOrder(burgerTown.queue[0].order);
 					break;
 
 				case "Manager":
-					// Do some managing
+					if (burgerTown.time.day % 6 == 0) {
+						burgerTown.staff[staffMember].payWages()
+					};
 					break;
+
 				case "Cashier":
 					// Serve food
 					burgerTown.staff[staffMember].checkCompletion(burgerTown.queue[0]);
