@@ -19,13 +19,6 @@ function gameLoop() {
 	}
 
 	for (var staffMember in burgerTown.staff) {
-		// Increments skill every 60 ticks
-		if (staffMember.hours % 60 == 0) {
-			staffMember.skill += 0.05;
-		}
-
-		staffMember.hours += 1;
-		staffMember.hunger += 1;
 
 		if (burgerTown.queue.length > 0) {
 			switch (burgerTown.staff[staffMember].constructor.name) {
@@ -38,7 +31,7 @@ function gameLoop() {
 					// Do some managing
 					break;
 				case "Cashier":
-					//burgerTown.staff[staffmember].checkCompletion(burgerTown.queue[0]);
+					burgerTown.staff[staffMember].checkCompletion(burgerTown.queue[0]);
 					break;
 			}
 		} else {

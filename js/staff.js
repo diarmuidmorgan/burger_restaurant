@@ -72,7 +72,7 @@ function Cashier(skill, hunger, motivation, stress, fatigue, agitator, unionised
 
 	this.checkCompletion = function(queue) {
 		// Checks completion of order
-		if (order.completion == 100) {
+		if (queue.order.completion == 100) {
 			this.serveCustomer()
 		}
 	}
