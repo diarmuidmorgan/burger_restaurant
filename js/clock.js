@@ -3,7 +3,7 @@ function Clock() {
 	var time = 0
 
 	this.increment = function() {
-		time = time + (GAME_SPEED / 1000);
+		time += 1
 		document.getElementById('clockDisplay').innerHTML = time.toString();
 
 		// Calls the game loop every tick
