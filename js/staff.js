@@ -53,16 +53,14 @@ function Manager(skill, hunger, motivation, stress, fatigue, agitator, unionised
 	// Constructor for a manager
 	Employee.call(this, skill, hunger, motivation, stress, fatigue, agitator, unionised)
 	this.wage = MANAGER_WAGE + Math.floor(skill)
-	this.payWages = function() {
 
-		if (burgerTown.time.day % 6 == 0) {
-			// Pays the staff every six days
-			for (var staffMember in burgerTown.staff) {
-				// Deducts wage * hours from bankBalance
-				burgerTown.bankBalance -= burgerTown.staff[staffMember].wage * burgerTown.staff[staffMember].hours;
-				burgerTown.staff[staffMember].totalHours += burgerTown.staff[staffMember].hours
-				burgerTown.staff[staffMember].hours = 0;
-			}
+	this.payWages = function() {
+		for (var staffMember in burgerTown.staff) {
+			console.log("Paying wages")
+			// Deducts wage * hours from bankBalance
+			burgerTown.bankBalance -= burgerTown.staff[staffMember].wage * burgerTown.staff[staffMember].hours;
+			burgerTown.staff[staffMember].totalHours += burgerTown.staff[staffMember].hours
+			burgerTown.staff[staffMember].hours = 0;
 		}
 	}
 }
@@ -90,9 +88,17 @@ function Cashier(skill, hunger, motivation, stress, fatigue, agitator, unionised
 }
 
 function hireEmployee(role) {
+	// Hire an employee
 	burgerTown.staff.push(new role(0, 0, 0, 0, 0, 0, false, false));
 }
 
+
+function incrementHoursWorked() {
+	// Increment hours of each staff member
+	for (var staffMember in burgerTown.staff) {
+		burgerTown.staff[staffMember].hours += 1
+	}
+}
 
 
 // Prototype constructors and reference

@@ -10,7 +10,7 @@ function Restaurant() {
 	}
 
 	this.netEarning = 0;
-	this.bankBalance = 0;
+	this.bankBalance = OPENING_BALANCE;
 
 	this.customerWalkouts = 0;
 	this.customerServed = 0;
