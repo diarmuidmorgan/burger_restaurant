@@ -1,13 +1,11 @@
 function Employee(skill, hunger, motivation, stress, fatigue, agitator, unionised) {
 	// Constructor for an employee
-	this.skill = skill;
 	// Begining at 0.0, incrementing periodically
 	// Chefs with every succesfull cooking action
 	// Managers with every customer served
 	// Constructor for an employee
 	this.skill = skill;
 	this.hours = 0
-
 
 	this.hunger = hunger;
 	this.motivation = motivation;
@@ -28,7 +26,7 @@ function Employee(skill, hunger, motivation, stress, fatigue, agitator, unionise
 function Chef(skill, hunger, motivation, stress, fatigue, agitator, unionised) {
 	// Constructor for a chef
 	Employee.call(this, skill, hunger, motivation, stress, fatigue, agitator, unionised)
-	this.wage = 6.5 + Math.floor(skill)
+	this.wage = CHEF_WAGE + Math.floor(skill)
 
 	this.cookOrder = function(order) {
 		// Function to cook an order
@@ -53,8 +51,8 @@ function Chef(skill, hunger, motivation, stress, fatigue, agitator, unionised) {
 function Manager(skill, hunger, motivation, stress, fatigue, agitator, unionised) {
 	// Constructor for a manager
 	Employee.call(this, skill, hunger, motivation, stress, fatigue, agitator, unionised)
-	this.wage = 7.5 + Math.floor(skill)
-	this.pay_wages = function() {
+	this.wage = MANAGER_WAGE + Math.floor(skill)
+	this.payWages = function() {
 
 		if (burgerTown.time % 604800 == 0) {
 			// Pays the staff every week
@@ -70,7 +68,7 @@ function Manager(skill, hunger, motivation, stress, fatigue, agitator, unionised
 function Cashier(skill, hunger, motivation, stress, fatigue, agitator, unionised) {
 	// Constructor for a cashier
 	Employee.call(this, skill, hunger, motivation, stress, fatigue, agitator, unionised)
-	this.wage = 6.5 + Math.floor(skill)
+	this.wage = CASHIER_WAGE + Math.floor(skill)
 
 	this.checkCompletion = function(queue) {
 		// Checks completion of order

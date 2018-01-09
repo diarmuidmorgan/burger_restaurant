@@ -38,7 +38,7 @@ function gameLoop() {
 					// Do some managing
 					break;
 				case "Cashier":
-					burgerTown.staff[staffmember].checkCompletion(burgerTown.queue[0]);
+					//burgerTown.staff[staffmember].checkCompletion(burgerTown.queue[0]);
 					break;
 			}
 		} else {

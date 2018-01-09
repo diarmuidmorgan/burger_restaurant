@@ -1,25 +1,6 @@
-function Queue() {
-	//basic, inefficient, queue function
-	this.list = [];
-	this.addTo = function(x) {
-
-		this.list.push(x);
-	};
-	this.next = function() {
-		var x = this.list[0];
-		var new_arr = []
-		for (i = 1; i < this.list.length; i++) {
-			new_arr.push(this.list[i]);
-		}
-		this.list = new_arr;
-		return x;
-	};
-}
-
 function Clock() {
 	//basic clock class for the restaurant
 	var time = 0
-
 
 	this.increment = function() {
 		time = time + (GAME_SPEED / 1000);
