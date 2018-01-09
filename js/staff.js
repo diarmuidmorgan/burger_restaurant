@@ -45,6 +45,7 @@ function Chef(skill, hunger, motivation, stress, fatigue, agitator, unionised) {
 					break;
 				} else {
 					order.completion = 100;
+					burgerTown.messageBox.writeMessage("Something cooked.")
 				};
 			}
 		}

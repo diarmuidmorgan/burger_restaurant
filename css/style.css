@@ -1,32 +1,37 @@
 #display {}
 
 #clock {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 #control {
-    display: inline;
+  display: inline;
 }
 
 .btn {
-    display: block;
+  display: block;
 }
 
 #receiptBox {
-    font-family: monospace;
-    width: 200px;
-    height: 300px;
-    float: left;
-    background-color: linen;
-    margin-left: 100px;
+  font-family: monospace;
+  width: 200px;
+  height: 300px;
+  float: left;
+  background-color: linen;
+  margin-left: 100px;
 }
 
 #stockBox {
-    font-family: monospace;
-    width: 200px;
-    height: 300px;
-    float: left;
-    background-color: linen;
+  font-family: monospace;
+  width: 200px;
+  height: 300px;
+  float: left;
+  background-color: linen;
+}
 
+#messageBox {
+  overflow: auto;
+  height: 200;
+  width: 500;
 }

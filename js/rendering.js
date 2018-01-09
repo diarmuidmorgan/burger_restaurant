@@ -26,6 +26,7 @@ function renderStockCupboard(cupboard) {
 function renderStatistics() {
 	if (DEBUG_MODE == 1) {
 		var debug = document.getElementById('debug');
+		var messageBox = document.getElementById('messageBox');
 		debug.innerHTML = ""
 		debug.insertAdjacentHTML('beforeend', 'Minute: ' + burgerTown.time.minute + '<br>');
 		debug.insertAdjacentHTML('beforeend', 'Hour: ' + burgerTown.time.hour + '<br>');
@@ -37,8 +38,7 @@ function renderStatistics() {
 		debug.insertAdjacentHTML('beforeend', 'Bank balance: ' + burgerTown.bankBalance + '<br>');
 		debug.insertAdjacentHTML('beforeend', 'Net earning: ' + burgerTown.netEarning + '<br>');
 
-		//       console.log(burgerTown.cupboard) // Contents of stock cupboard
-		console.log(burgerTown.queue[burgerTown.queue.length - 1]); // Most recent customer
+		messageBox.innerHTML = burgerTown.messageBox.messages;
 	}
 }
 
