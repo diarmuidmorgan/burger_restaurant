@@ -3,7 +3,7 @@ function Clock() {
 	var time = 0
 
 	this.increment = function() {
-		time = time + (1000 / GAME_SPEED);
+		time = time + (GAME_SPEED / 1000);
 		document.getElementById('clockDisplay').innerHTML = time.toString();
 
 		// Calls the game loop every tick
@@ -24,10 +24,8 @@ function Clock() {
 	}
 
 	function incrementTime() {
-		console.log("checking")
 		if (time == 59) {
 			time = 0
-			console.log("incrementing")
 			burgerTown.time.minute += 1
 		} else {
 			if (burgerTown.time.minute == 59) {

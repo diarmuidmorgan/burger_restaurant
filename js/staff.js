@@ -54,8 +54,8 @@ function Manager(skill, hunger, motivation, stress, fatigue, agitator, unionised
 	this.wage = MANAGER_WAGE + Math.floor(skill)
 	this.payWages = function() {
 
-		if (burgerTown.time % 604800 == 0) {
-			// Pays the staff every week
+		if (burgerTown.time.day % 6 == 0) {
+			// Pays the staff every six days
 			for (var staff in burgerTown.staff) {
 				// Deducts wage * hours from bankBalance
 				burgerTown.bankBalance -= staff.wage * staff.hours;
@@ -79,7 +79,7 @@ function Cashier(skill, hunger, motivation, stress, fatigue, agitator, unionised
 
 	this.serveCustomer = function() {
 		// Serves customer
-		console.log("Serving customer")
+		console.log("Serving customer.")
 		burgerTown.netEarning += burgerTown.queue[0].order.orderTotal;
 		burgerTown.bankBalance += burgerTown.queue[0].order.orderTotal;
 		burgerTown.queue.splice(0, 1)

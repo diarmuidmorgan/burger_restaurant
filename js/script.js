@@ -5,7 +5,6 @@ function Restaurant() {
 		"minute": 0,
 		"hour": 0,
 		"day": 0,
-		"week": 0,
 		"month": 0,
 		"year": 0,
 	}
