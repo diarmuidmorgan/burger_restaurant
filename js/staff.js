@@ -79,6 +79,7 @@ function Cashier(skill, hunger, motivation, stress, fatigue, agitator, unionised
 
 	this.serveCustomer = function() {
 		// Serves customer
+		console.log("Serving customer")
 		burgerTown.netEarning += burgerTown.queue[0].order.orderTotal;
 		burgerTown.bankBalance += burgerTown.queue[0].order.orderTotal;
 		burgerTown.queue.splice(0, 1)

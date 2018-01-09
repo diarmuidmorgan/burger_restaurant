@@ -1,5 +1,4 @@
 // Simulation variables
-
 var GAME_SPEED = 1000 // Speed in milliseconds
 
 var CUSTOMER_PROB = 0.5 // Probability for customer to arrive each tick
