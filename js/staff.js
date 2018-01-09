@@ -34,11 +34,13 @@ function Chef(skill, hunger, motivation, stress, fatigue, agitator, unionised) {
 		for (item in order) {
 			if (order[item].FRIED == true) {
 				order.completion = 100
+				burgerTown.messageBox.writeMessage("Something fried.")
 				// fryer(order[item]);
 				break;
 			} else {
 				if (order[item].GRILLED == true) {
 					order.completion = 100
+					burgerTown.messageBox.writeMessage("Something grilled.")
 					// grill(order[item]);
 					break;
 				} else {
@@ -56,11 +58,11 @@ function Manager(skill, hunger, motivation, stress, fatigue, agitator, unionised
 
 	this.payWages = function() {
 		for (var staffMember in burgerTown.staff) {
-			console.log("Paying wages")
 			// Deducts wage * hours from bankBalance
 			burgerTown.bankBalance -= burgerTown.staff[staffMember].wage * burgerTown.staff[staffMember].hours;
 			burgerTown.staff[staffMember].totalHours += burgerTown.staff[staffMember].hours
 			burgerTown.staff[staffMember].hours = 0;
+			burgerTown.messageBox.writeMessage("Wages paid.")
 		}
 	}
 }
@@ -79,11 +81,11 @@ function Cashier(skill, hunger, motivation, stress, fatigue, agitator, unionised
 
 	this.serveCustomer = function() {
 		// Serves customer
-		console.log("Serving customer.")
 		burgerTown.netEarning += burgerTown.queue[0].order.orderTotal;
 		burgerTown.bankBalance += burgerTown.queue[0].order.orderTotal;
 		burgerTown.queue.splice(0, 1)
 		burgerTown.customerServed += 1
+		burgerTown.messageBox.writeMessage("Customer served.")
 	}
 }
 

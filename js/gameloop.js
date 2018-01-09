@@ -11,7 +11,7 @@ function gameLoop() {
 		if (burgerTown.queue[customer].anger >= 80) {
 			burgerTown.queue.splice(customer, 1)
 			burgerTown.customerWalkouts += 1
-			console.log("The customer got too irate and walked out.")
+			burgerTown.messageBox.writeMessage("A customer got too irate and walked out.")
 		}
 	}
 
@@ -21,10 +21,12 @@ function gameLoop() {
 			switch (burgerTown.staff[staffMember].constructor.name) {
 
 				case "Chef":
+					// Cook food
 					burgerTown.staff[staffMember].cookOrder(burgerTown.queue[0].order);
 					break;
 
 				case "Manager":
+					// Pay wages
 					if (burgerTown.time.day % 6 == 0) {
 						burgerTown.staff[staffMember].payWages()
 					};
@@ -42,7 +44,7 @@ function gameLoop() {
 
 	// Random chance for a customer to arrive each tick
 	if (Math.random() <= CUSTOMER_PROB) {
-		console.log("A customer has arrived.")
+		burgerTown.messageBox.writeMessage("A customer has arrived.")
 		burgerTown.queue.push(new Customer());
 	}
 

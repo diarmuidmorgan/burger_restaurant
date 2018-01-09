@@ -40,5 +40,14 @@ function renderStatistics() {
 		//       console.log(burgerTown.cupboard) // Contents of stock cupboard
 		console.log(burgerTown.queue[burgerTown.queue.length - 1]); // Most recent customer
 	}
+}
+
+function messageBox() {
+	// Keeps a list of the most recent messages
+	this.messages = []
+
+	this.writeMessage = function(message) {
+		this.messages += message + "<br>"
+	}
 
 }

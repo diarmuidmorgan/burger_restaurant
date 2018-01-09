@@ -9,6 +9,8 @@ function Restaurant() {
 		"year": 0,
 	}
 
+	this.messageBox = new messageBox()
+
 	this.netEarning = 0;
 	this.bankBalance = OPENING_BALANCE;
 
