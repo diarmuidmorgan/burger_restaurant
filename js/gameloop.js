@@ -3,10 +3,7 @@ function gameLoop() {
 	for (var customer in burgerTown.queue) {
 
 		// Looks at whether the order is fulfilled, makes them angry if it's not.
-		if (burgerTown.queue[customer].order.completion == 100) {
-			console.log("Order completed")
-
-		} else {
+		if (burgerTown.queue[customer].order.completion != 100) {
 			burgerTown.queue[customer].anger += 5;
 		}
 
@@ -24,6 +21,7 @@ function gameLoop() {
 			switch (burgerTown.staff[staffMember].constructor.name) {
 
 				case "Chef":
+					// Cook food
 					burgerTown.staff[staffMember].cookOrder(burgerTown.queue[0].order);
 					break;
 
@@ -31,6 +29,7 @@ function gameLoop() {
 					// Do some managing
 					break;
 				case "Cashier":
+					// Serve food
 					burgerTown.staff[staffMember].checkCompletion(burgerTown.queue[0]);
 					break;
 			}
