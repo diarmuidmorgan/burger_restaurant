@@ -31,6 +31,10 @@ function Clock() {
 			if (burgerTown.time.minute == 59) {
 				burgerTown.time.minute = 0
 				burgerTown.time.hour += 1
+				// Increment hours of staff
+				for (var staff in burgerTown.staff) {
+					burgerTown.staff[staffMember].hours += 1
+				}
 			} else {
 				if (burgerTown.time.hour == 23) {
 					burgerTown.time.hour = 0

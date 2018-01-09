@@ -6,6 +6,7 @@ function Employee(skill, hunger, motivation, stress, fatigue, agitator, unionise
 	// Constructor for an employee
 	this.skill = skill;
 	this.hours = 0
+	this.totalHours = 0
 
 	this.hunger = hunger;
 	this.motivation = motivation;
@@ -56,10 +57,11 @@ function Manager(skill, hunger, motivation, stress, fatigue, agitator, unionised
 
 		if (burgerTown.time.day % 6 == 0) {
 			// Pays the staff every six days
-			for (var staff in burgerTown.staff) {
+			for (var staffMember in burgerTown.staff) {
 				// Deducts wage * hours from bankBalance
-				burgerTown.bankBalance -= staff.wage * staff.hours;
-				staff.hours = 0;
+				burgerTown.bankBalance -= burgerTown.staff[staffMember].wage * burgerTown.staff[staffMember].hours;
+				burgerTown.staff[staffMember].totalHours += burgerTown.staff[staffMember].hours
+				burgerTown.staff[staffMember].hours = 0;
 			}
 		}
 	}
