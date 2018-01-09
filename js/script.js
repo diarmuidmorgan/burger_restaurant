@@ -46,8 +46,6 @@ function Clock() {
 function Restaurant() {
 	// Constructor for the restaurant class
 	this.clock = new Clock;
-	this.ticketqueue = new Queue;
-	this.ticketmachine = new TicketGenerator;
 
 	this.netEarning = 0;
 	this.bankBalance = 0;
@@ -59,10 +57,6 @@ function Restaurant() {
 	this.staff = [];
 
 	this.cupboard = components;
-
-	while (this.clock.time < 1000) {
-		setTimeout(console.log(this.ticketmachine.next()), 300)
-	}
 }
 
 var burgerTown = new Restaurant();

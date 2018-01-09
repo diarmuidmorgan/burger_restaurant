@@ -20,8 +20,8 @@ function gameLoop() {
 
 	for (var staffMember in burgerTown.staff) {
 		// Increments skill every 60 ticks
-		if (staffmember.hours % 60 == 0) {
-			staffmember.skill += 0.05;
+		if (staffMember.hours % 60 == 0) {
+			staffMember.skill += 0.05;
 		}
 
 		staffMember.hours += 1;
