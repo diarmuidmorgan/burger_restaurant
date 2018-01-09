@@ -3,6 +3,8 @@ Chefs should add to the hot cupboard, cashiers remove from it
 Cashiers should assemble orders
 Cashiers should pour drinks
 
+Add hourly/daily/weekly timers
+
 Add stock tracking, stock ordering
 Variable sizes of some menu items
 
@@ -14,5 +16,7 @@ Employees should be paid at the end of each month.
 Employees should be generated with somewhat random stats.
 Add way to sack employees.
 Add union agitators.
+
+Add message log for game events
 
 Some way to save the game state

@@ -1,74 +1,94 @@
-function Grill() {
-    //grill class
-    var temp = 0;
-    var mode = 'off';
-    this.switch = function () {
-        if (mode == 'off') {
-            mode = 'on';
-        } else {
-            mode = 'off'
-        }
-    }
+function grill(size) {
+	//represents the restaurants grill//
 
-    this.displayTemp = function () {
-        return temp;
-    }
-};
+	this.temperature = 0;
+	this.on = false;
+	this.contents = [
+		[],
+		[],
+		[]
+	];
+	this.max_temperature = 0;
+	this.dirt = 0
+	this.items_number = 0
 
-function Fryer() {
-    //fryer class constructor
-    var temp = 0;
-    var mode = 'off';
-    var contents = 'empty';
-
-    this.switch = function () {
-        if (mode == 'off') {
-            mode = 'on';
-        } else {
-            mode = 'off'
-        }
-    }
-    this.displayTemp = function () {
-        return temp;
+	this.multipliers = [1, 1.2, 1.5]
 
 
+	this.time_modify_grill = function() {
+
+		if (this.temperature + 1 <= this.max_temperature) {
+			this.temperature += 1;
+		} else {
+			this.temperature -= 1;
+		}
+
+		this.dirt += this.items_number * 0.05;
+
+	}
+
+	this.set_max_Temperature = function(temp) {
+
+		this.max_temperature = temp;
+	}
+	this.MakeEmptyGrill = function() {
+		for (i = 0; i < this.contents.length; i++) {
+
+			for (z = 0; z < size; z++) {
+				this.contents[i].push('_');
+
+			}
+		}
+	}
 
 
-    }
-};
+	this.cook_items = function() {
 
-function Cupboard(x) {
-    //cupboard class constructor
+		for (i = 0; i < contents.length; i++) {
+			heat = this.temperature * multipliers[i]
+			for (z = 0; z < contents[i].length; z++) {
+				this.contents[i][z].complete += heat - (this.dirt / 100);
+			}
 
-    this.contents = [
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        []
-    ]
-    this.withdraw = function (x) {
-        for (i = 0; i < contents.length; i++) {
-            if (contents[i].id == x) {
-                var v = contents[i];
-                contents[i] = [];
-                return v;
-            }
-            return false;
-        }
-    };
-}
+		}
 
-function Station(list) {
-    //station class constructor
 
-    this.display = function () {
+	}
 
-        return 0;
-    }
+	this.add_item_position = function(x, y, item) {
+		if (contents[x][y] == '_') {
+			contents[x][y] = item
+			return true
+		} else {
+			return false
+		}
+	}
+	this.add_item_random = function(x, y, item) {
+
+		for (i = 0; i < this.contents.length; i++) {
+
+			for (z = 0; z < this.contents[i].length; z++) {
+				if (this.contents[i][z] == '_') {
+					this.contents[i][z] == item;
+					return true;
+				}
+
+			}
+
+		}
+
+		return false;
+
+	}
+
+	this.checkGrill()
+
+
+
+
+
+
+
+
+
 }
