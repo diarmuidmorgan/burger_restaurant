@@ -1,19 +1,13 @@
 function Clock() {
 	// Main clock class for the restaurant
 	var time = 0
-	var minute = 0
-	var hour = 0
-	var day = 0
-	var week = 0
-	var month = 0
-	var year = 0
 
 	this.increment = function() {
-		time = time + (GAME_SPEED / 1000);
+		time = time + (1000 / GAME_SPEED);
 		document.getElementById('clockDisplay').innerHTML = time.toString();
 
 		// Calls the game loop every tick
-		//Clock.incrementTime()
+		incrementTime()
 		gameLoop()
 	};
 
@@ -29,26 +23,28 @@ function Clock() {
 		GAME_SPEED = x;
 	}
 
-	this.incrementTime = function() {
+	function incrementTime() {
+		console.log("checking")
 		if (time == 59) {
 			time = 0
-			minutes += 1
+			console.log("incrementing")
+			burgerTown.time.minute += 1
 		} else {
-			if (minute == 59) {
-				minute = 0
-				hour += 1
+			if (burgerTown.time.minute == 59) {
+				burgerTown.time.minute = 0
+				burgerTown.time.hour += 1
 			} else {
-				if (hour == 23) {
-					hour = 0
-					day += 1
+				if (burgerTown.time.hour == 23) {
+					burgerTown.time.hour = 0
+					burgerTown.time.day += 1
 				} else {
-					if (day == 29) {
-						day = 0
-						month += 1
+					if (burgerTown.time.day == 29) {
+						burgerTown.time.day = 0
+						burgerTown.time.month += 1
 					} else {
-						if (month == 11) {
-							month = 0
-							year += 1
+						if (burgerTown.time.month == 11) {
+							burgerTown.time.month = 0
+							burgerTown.time.year += 1
 						}
 					}
 				}

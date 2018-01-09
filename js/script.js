@@ -1,6 +1,14 @@
 function Restaurant() {
 	// Constructor for the restaurant class
 	this.clock = new Clock;
+	this.time = {
+		"minute": 0,
+		"hour": 0,
+		"day": 0,
+		"week": 0,
+		"month": 0,
+		"year": 0,
+	}
 
 	this.netEarning = 0;
 	this.bankBalance = 0;
