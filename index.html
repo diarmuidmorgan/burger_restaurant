@@ -18,44 +18,42 @@
 </head>
 
 <body>
-
-  <div id="clock">
-    <p id='clockDisplay'></p>
-    <div id='control'>
-      <button name="clockStopBtn" onclick="burgerTown.clock.stop()">
+  <div class="wrapper">
+    <div id="clock">
+      <p id='clockDisplay'></p>
+      <div id='control'>
+        <button name="clockStopBtn" onclick="burgerTown.clock.stop()">
                 <p>Stop</p>
             </button>
-      <button name="clockStartBtn" onclick="burgerTown.clock.start()">
+        <button name="clockStartBtn" onclick="burgerTown.clock.start()">
                 <p>Start</p>
             </button>
+      </div>
     </div>
-  </div>
-  <div id="employStaff">
-    <button name="hireCashier" onclick="hireEmployee(Cashier)">
+    <div id="employStaff">
+      <button name="hireCashier" onclick="hireEmployee(Cashier)">
         <p>Hire Cashier</p>
         </button>
-    <button name="hireCashier" onclick="hireEmployee(Chef)">
+      <button name="hireCashier" onclick="hireEmployee(Chef)">
         <p>Hire Chef</p>
         </button>
-    <button name="hireCashier" onclick="hireEmployee(Manager)">
+      <button name="hireCashier" onclick="hireEmployee(Manager)">
         <p>Hire Manager</p>
         </button>
-  </div>
-  <div id="stockBox">
-    <h3>Stock Cupboard</h3>
-
-    <div id="stockListing">
-      <!-- Stuff here -->
     </div>
-  </div>
-  <div id="receiptBox">
-    <h3>burgerTown</h3>
-    <div id="mostRecentOrder"></div>
-  </div>
+    <div id="stockBox">
+      <h3>Stock Cupboard</h3>
+      <div id="stockListing"></div>
+    </div>
+    <div id="receiptBox">
+      <h3>burgerTown</h3>
+      <div id="mostRecentOrder"></div>
+    </div>
 
-  <div id="messageBox"></div>
+    <div id="messageBox"></div>
 
-  <div id="debug"></div>
+    <div id="debug"></div>
+  </div>
 </body>
 
 
