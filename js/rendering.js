@@ -51,9 +51,9 @@ function messageBox() {
 
 	this.writeMessage = function(message) {
 		// Writes messages to log, keeps it to a certain length
-		this.messages.push(message + "<br>")
+		this.messages.unshift(message + "<br>")
 		if (this.messages.length > LOG_LENGTH) {
-			this.messages.shift()
+			this.messages.pop()
 		}
 	}
 

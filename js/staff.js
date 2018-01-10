@@ -31,21 +31,20 @@ function Chef(skill, hunger, motivation, stress, fatigue, agitator, unionised) {
 
 	this.cookOrder = function(order) {
 		// Function to cook an order
-		for (item in order) {
-			if (order[item].FRIED == true) {
+		for (item in order.items) {
+			if (order.items[item].FRIED == true) {
 				order.completion = 100
-				burgerTown.messageBox.writeMessage("Something fried.")
+				burgerTown.messageBox.writeMessage(order.items[item].NAME + " fried.")
 				// fryer(order[item]);
 				break;
 			} else {
-				if (order[item].GRILLED == true) {
+				if (order.items[item].GRILLED == true) {
 					order.completion = 100
-					burgerTown.messageBox.writeMessage("Something grilled.")
+					burgerTown.messageBox.writeMessage(order.items[item].NAME + " grilled.")
 					// grill(order[item]);
 					break;
 				} else {
 					order.completion = 100;
-					burgerTown.messageBox.writeMessage("Something cooked.")
 				};
 			}
 		}
