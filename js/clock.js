@@ -36,12 +36,12 @@ function Clock() {
 					burgerTown.time.hour = 0
 					burgerTown.time.day += 1
 				} else {
-					if (burgerTown.time.day == 29) {
-						burgerTown.time.day = 0
+					if (burgerTown.time.day == 30) {
+						burgerTown.time.day = 1
 						burgerTown.time.month += 1
 					} else {
-						if (burgerTown.time.month == 11) {
-							burgerTown.time.month = 0
+						if (burgerTown.time.month == 12) {
+							burgerTown.time.month = 1
 							burgerTown.time.year += 1
 						}
 					}
