@@ -26,8 +26,9 @@ function renderStockCupboard(cupboard) {
 function renderStatistics() {
 	if (DEBUG_MODE == 1) {
 		var debug = document.getElementById('debug');
-		var messageBox = document.getElementById('messageBox');
+		var messageWindow = document.getElementById('messageBox');
 		debug.innerHTML = ""
+
 		debug.insertAdjacentHTML('beforeend', 'Minute: ' + burgerTown.time.minute + '<br>');
 		debug.insertAdjacentHTML('beforeend', 'Hour: ' + burgerTown.time.hour + '<br>');
 		debug.insertAdjacentHTML('beforeend', 'Day: ' + burgerTown.time.day + '<br>');
@@ -38,16 +39,30 @@ function renderStatistics() {
 		debug.insertAdjacentHTML('beforeend', 'Bank balance: ' + burgerTown.bankBalance + '<br>');
 		debug.insertAdjacentHTML('beforeend', 'Net earning: ' + burgerTown.netEarning + '<br>');
 
-		messageBox.innerHTML = burgerTown.messageBox.messages;
+		burgerTown.messageBox.displayMessages(messageWindow)
 	}
 }
+
 
 function messageBox() {
 	// Keeps a list of the most recent messages
 	this.messages = []
+	var msgString = ""
 
 	this.writeMessage = function(message) {
-		this.messages += message + "<br>"
+		// Writes messages to log, keeps it to a certain length
+		this.messages.push(message + "<br>")
+		if (this.messages.length > LOG_LENGTH) {
+			this.messages.shift()
+		}
 	}
 
+	this.displayMessages = function(messageWindow) {
+		// Puts messages into string and prints them
+		for (message in this.messages) {
+			msgString += this.messages[message]
+		}
+		messageWindow.innerHTML = msgString;
+		msgString = ""
+	}
 }

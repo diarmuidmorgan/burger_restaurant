@@ -7,13 +7,13 @@
 #clock {
   display: inline;
   grid-column: 1/2;
-  grid-row: 1/2;
+  grid-row: 2/3;
 }
 
 #employStaff {
   display: inline;
   grid-column: 2/4;
-  grid-row: 1/2;
+  grid-row: 2/3;
 }
 
 .btn {
@@ -26,7 +26,7 @@
   height: 300px;
   background-color: linen;
   grid-column: 3/4;
-  grid-row: 2/3;
+  grid-row: 1/2;
 }
 
 #stockBox {
@@ -35,7 +35,7 @@
   height: 300px;
   background-color: linen;
   grid-column: 1/2;
-  grid-row: 2/3;
+  grid-row: 1/2;
 }
 
 #messageBox {
@@ -50,5 +50,5 @@
   margin-top: 15%;
   font-family: monospace;
   grid-column: 2/3;
-  grid-row: 2/3;
+  grid-row: 1/2;
 }
