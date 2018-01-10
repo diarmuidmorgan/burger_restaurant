@@ -4,8 +4,6 @@ function Clock() {
 
 	this.increment = function() {
 		time += 1
-		document.getElementById('clockDisplay').innerHTML = time.toString();
-
 		// Calls the game loop every tick
 		incrementTime()
 		gameLoop()
