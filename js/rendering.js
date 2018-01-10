@@ -1,3 +1,8 @@
+function roundNumber(number) {
+	// Rounds numbers to two decimal places
+	return Math.round(number * 2) / 2
+}
+
 function renderOrder(order) {
 	// Function to output the order as HTML
 	// Currently not clearing between orders
@@ -6,7 +11,7 @@ function renderOrder(order) {
 	for (item in order.items) {
 		HTML += order.items[item].NAME + " " + order.items[item].PRICE + '<br>'
 	}
-	HTML += '<br>TOTAL: ' + order.orderTotal
+	HTML += '<br>TOTAL: ' + roundNumber(order.orderTotal)
 	mostRecentOrder.innerHTML = HTML
 }
 
@@ -36,8 +41,8 @@ function renderStatistics() {
 		debug.insertAdjacentHTML('beforeend', 'Walkouts: ' + burgerTown.customerWalkouts + '<br>');
 		debug.insertAdjacentHTML('beforeend', 'Queue length: ' + burgerTown.queue.length + '<br>');
 		debug.insertAdjacentHTML('beforeend', 'Employees: ' + burgerTown.staff.length + '<br>');
-		debug.insertAdjacentHTML('beforeend', 'Bank balance: ' + burgerTown.bankBalance + '<br>');
-		debug.insertAdjacentHTML('beforeend', 'Net earning: ' + burgerTown.netEarning + '<br>');
+		debug.insertAdjacentHTML('beforeend', 'Bank balance: ' + roundNumber(burgerTown.bankBalance) + '<br>');
+		debug.insertAdjacentHTML('beforeend', 'Net earning: ' + roundNumber(burgerTown.netEarning) + '<br>');
 
 		burgerTown.messageBox.displayMessages(messageWindow)
 	}

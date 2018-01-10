@@ -7,7 +7,7 @@ function Customer() {
 		return Math.round(max / (Math.random() * max + min));
 	}
 
-	this.anger = 60
+	this.anger = biasedRandom(2, 6) * 10
 
 	this.hunger = biasedRandom(20, 100) + 1
 
