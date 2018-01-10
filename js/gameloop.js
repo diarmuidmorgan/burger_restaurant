@@ -4,11 +4,11 @@ function gameLoop() {
 
 		// Looks at whether the order is fulfilled, makes them angry if it's not.
 		if (burgerTown.queue[customer].order.completion != 100) {
-			burgerTown.queue[customer].anger += 5;
+			burgerTown.queue[customer].anger += 0.7;
 		}
 
 		// Customers walk out without paying if they're too angry
-		if (burgerTown.queue[customer].anger >= 80) {
+		if (burgerTown.queue[customer].anger >= 90) {
 			burgerTown.queue.splice(customer, 1)
 			burgerTown.customerWalkouts += 1
 			burgerTown.messageBox.writeMessage("A customer got too irate and walked out.")
@@ -22,7 +22,12 @@ function gameLoop() {
 
 				case "Chef":
 					// Cook food
-					burgerTown.staff[staffMember].cookOrder(burgerTown.queue[0].order);
+					for (x in burgerTown.queue) {
+						if (burgerTown.queue[x].order.completion < 100) {
+							burgerTown.staff[staffMember].cookOrder(burgerTown.queue[x].order);
+							break;
+						}
+					}
 					break;
 
 				case "Manager":
