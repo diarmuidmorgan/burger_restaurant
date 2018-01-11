@@ -39,7 +39,6 @@ function gameLoop() {
 				case "Cashier":
 					// Serve food
 					burgerTown.staff[staffMember].checkCompletion(burgerTown.queue[0]);
-					burgerTown.staff[staffMember].editFatigue(0.01);
 					break;
 			}
 		} else {

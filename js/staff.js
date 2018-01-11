@@ -51,14 +51,14 @@ function Chef(skill, hunger, apathy, stress, fatigue, agitator, unionised) {
 		for (item in order.items) {
 			if (order.items[item].FRIED == true) {
 				order.completion = 100
-				this.editFatigue(0.01);
+				this.editFatigue(FATIGUE_INCREMENT);
 				burgerTown.messageBox.writeMessage(order.items[item].NAME + " fried.")
 				// fryer(order[item]);
 				break;
 			} else {
 				if (order.items[item].GRILLED == true) {
 					order.completion = 100
-					this.editFatigue(0.01);
+					this.editFatigue(FATIGUE_INCREMENT);
 					burgerTown.messageBox.writeMessage(order.items[item].NAME + " grilled.")
 					// grill(order[item]);
 					break;
@@ -95,6 +95,7 @@ function Cashier(skill, hunger, apathy, stress, fatigue, agitator, unionised) {
 		// Checks completion of order
 		if (queue.order.completion == 100) {
 			this.serveCustomer()
+			this.editFatigue(FATIGUE_INCREMENT);
 		}
 	}
 

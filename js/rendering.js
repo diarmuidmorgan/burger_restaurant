@@ -79,8 +79,16 @@ function messageBox() {
 
 function renderStaffStats(staff) {
 	var staffStats = document.getElementById('staffStats');
+	var staffInfo = ""
 	staffStats.innerHTML = ""
 	for (var staffMember in staff) {
-		staffStats.insertAdjacentHTML('beforeend', JSON.stringify(staff[staffMember]));
+		staffInfo += "<b>" + staff[staffMember].constructor.name + "</b>";
+		staffInfo += " Hunger: " + staff[staffMember].hunger.toPrecision(2);
+		staffInfo += " Fatigue: " + staff[staffMember].fatigue.toPrecision(2);
+		staffInfo += " Stress: " + staff[staffMember].stress.toPrecision(2);
+		staffInfo += " Apathy: " + staff[staffMember].apathy.toPrecision(2);
+		staffInfo += "</br>"
+		staffStats.insertAdjacentHTML('beforeend', staffInfo);
+		staffInfo = ""
 	}
 }
