@@ -22,6 +22,22 @@ function Employee(skill, hunger, motivation, stress, fatigue, agitator, unionise
 		this.skill += skillIncrease;
 	}
 
+	this.editFatigue = function(fatigueChange) {
+		this.fatigue += fatigueChange;
+	}
+
+	this.editStress = function(stressChange) {
+		this.stress += stressChange;
+	}
+
+	this.editHunger = function(hungerChange) {
+		this.hunger += hungerChange;
+	}
+
+	this.editMotivation = function(motivationChange) {
+		this.motivation += motivationChange;
+	}
+
 }
 
 function Chef(skill, hunger, motivation, stress, fatigue, agitator, unionised) {

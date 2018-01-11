@@ -25,6 +25,7 @@ function gameLoop() {
 					for (x in burgerTown.queue) {
 						if (burgerTown.queue[x].order.completion < 100) {
 							burgerTown.staff[staffMember].cookOrder(burgerTown.queue[x].order);
+							burgerTown.staff[staffMember].editFatigue(0.01);
 							break;
 						}
 					}
@@ -40,6 +41,7 @@ function gameLoop() {
 				case "Cashier":
 					// Serve food
 					burgerTown.staff[staffMember].checkCompletion(burgerTown.queue[0]);
+					burgerTown.staff[staffMember].editFatigue(0.01);
 					break;
 			}
 		} else {
