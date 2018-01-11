@@ -7,6 +7,7 @@ function Employee(skill, hunger, motivation, stress, fatigue, agitator, unionise
 	this.skill = skill;
 	this.hours = 0
 
+
 	this.hunger = hunger;
 	this.motivation = motivation;
 	this.stress = stress;
@@ -27,6 +28,18 @@ function Chef(skill, hunger, motivation, stress, fatigue, agitator, unionised) {
 	// Constructor for a chef
 	Employee.call(this, skill, hunger, motivation, stress, fatigue, agitator, unionised)
 	this.wage = CHEF_WAGE + Math.floor(skill)
+	this.name = nameGenerator.generate()
+	this.work = function(){
+		//chef should look for available tasks.
+
+
+	}
+
+	this.skive = function(){
+		//if no available tasks, or insufficient motivation, Chef should choose a leisure activity
+
+
+	}
 
 	this.cookOrder = function(order) {
 		// Function to cook an order
@@ -52,6 +65,7 @@ function Manager(skill, hunger, motivation, stress, fatigue, agitator, unionised
 	// Constructor for a manager
 	Employee.call(this, skill, hunger, motivation, stress, fatigue, agitator, unionised)
 	this.wage = MANAGER_WAGE + Math.floor(skill)
+	this.name = nameGenerator.generate()
 	this.payWages = function() {
 
 		if (burgerTown.time % 604800 == 0) {
@@ -69,6 +83,7 @@ function Cashier(skill, hunger, motivation, stress, fatigue, agitator, unionised
 	// Constructor for a cashier
 	Employee.call(this, skill, hunger, motivation, stress, fatigue, agitator, unionised)
 	this.wage = CASHIER_WAGE + Math.floor(skill)
+	this.name = nameGenerator.generate()
 
 	this.checkCompletion = function(queue) {
 		// Checks completion of order
@@ -91,6 +106,19 @@ function hireEmployee(role) {
 	burgerTown.staff.push(new role(0, 0, 0, 0, 0, 0, false, false));
 }
 
+function nameGenerator(){
+
+	var surnames = ['Mallory', 'Blake', 'Mulligan', 'Morgan', 'Said', 'Chen', 'Hobbes', 'Wang', 'O\'Donovan', 'O\'Shaughnessey'];
+	var firstnames = ['Mick', 'Peter', 'Gregor', 'Jill', 'Jane', 'Tim', 'Kevin', 'Clarence', 'Sara', 'Yiming', 'Hope'];
+
+	this.generate = function(){
+		var r1 = Math.floor(Math.random() * surnames.length);
+		var r2 = Math.floor(Math.random() * firstnames.length);
+		return firstnames[r2]+' '+surnames[r1];
+}
+}
+
+var nameGenerator = new nameGenerator()
 
 
 // Prototype constructors and reference
