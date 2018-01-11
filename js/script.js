@@ -1,12 +1,12 @@
 function Clock() {
 	//basic clock class for the restaurant
 	var time = 0
-	this.clockTime=[16, 0, 0]
+	clockTime=[16, 0, 0]
 
 
 	this.increment = function() {
 		time = time + 1;
-		document.getElementById('clockDisplay').innerHTML = time.toString();
+
 		this.clockTime[2]+=1
 		if (this.clockTime[2]>=60){
 			this.clockTime[2]=0;
@@ -21,7 +21,7 @@ function Clock() {
 			}
 
 		}
-
+		document.getElementById('clockDisplay').innerHTML = clockTime[0].toString()+':'+clockTime[1].toString()+':'+clockTime[2].toString();
 		// Calls the game loop every tick
 		gameLoop()
 	};
