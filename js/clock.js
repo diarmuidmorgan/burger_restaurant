@@ -27,6 +27,7 @@ function Clock() {
 			time = 0
 			burgerTown.time.minute += 1
 			renderStatistics();
+			renderStaffStats(burgerTown.staff);
 		} else {
 			if (burgerTown.time.minute == 59) {
 				burgerTown.time.minute = 0

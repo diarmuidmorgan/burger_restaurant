@@ -8,7 +8,7 @@ function renderOrder(order) {
 	// Currently not clearing between orders
 	var mostRecentOrder = document.getElementById('mostRecentOrder')
 	var HTML = ''
-	for (item in order.items) {
+	for (var item in order.items) {
 		HTML += order.items[item].NAME + " " + order.items[item].PRICE + '<br>'
 	}
 	HTML += '<br>TOTAL: ' + roundNumber(order.orderTotal)
@@ -20,7 +20,7 @@ function renderStockCupboard(cupboard) {
 	var stockListing = document.getElementById('stockListing')
 	var HTML = ''
 
-	for (item in cupboard) {
+	for (var item in cupboard) {
 		HTML += cupboard[item].NAME + " " + cupboard[item].QUANTITY + '<br>'
 	}
 
@@ -69,10 +69,18 @@ function messageBox() {
 
 	this.displayMessages = function(messageWindow) {
 		// Puts messages into string and prints them
-		for (message in this.messages) {
+		for (var message in this.messages) {
 			msgString += this.messages[message]
 		}
 		messageWindow.innerHTML = msgString;
 		msgString = ""
+	}
+}
+
+function renderStaffStats(staff) {
+	var staffStats = document.getElementById('staffStats');
+	staffStats.innerHTML = ""
+	for (var staffMember in staff) {
+		staffStats.insertAdjacentHTML('beforeend', JSON.stringify(staff[staffMember]));
 	}
 }
