@@ -31,7 +31,6 @@ function renderStockCupboard(cupboard) {
 function renderStatistics() {
 	if (DEBUG_MODE == 1) {
 		var debug = document.getElementById('debug');
-		var messageWindow = document.getElementById('messageBox');
 		debug.innerHTML = ""
 
 		debug.insertAdjacentHTML('beforeend', 'Minute: ' + burgerTown.time.minute + '<br>');
@@ -44,8 +43,14 @@ function renderStatistics() {
 		debug.insertAdjacentHTML('beforeend', 'Bank balance: ' + roundNumber(burgerTown.bankBalance) + '<br>');
 		debug.insertAdjacentHTML('beforeend', 'Net earning: ' + roundNumber(burgerTown.netEarning) + '<br>');
 
-		burgerTown.messageBox.displayMessages(messageWindow)
+
 	}
+}
+
+function renderMessageLog() {
+	// Draws the message log
+	var messageWindow = document.getElementById('messageBox');
+	burgerTown.messageBox.displayMessages(messageWindow)
 }
 
 

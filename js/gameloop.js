@@ -16,7 +16,6 @@ function gameLoop() {
 	}
 
 	for (var staffMember in burgerTown.staff) {
-
 		if (burgerTown.queue.length > 0) {
 			switch (burgerTown.staff[staffMember].constructor.name) {
 
@@ -60,5 +59,4 @@ function gameLoop() {
 		renderOrder(burgerTown.queue[burgerTown.queue.length - 1].order) // The most recent order
 	}
 	renderStockCupboard(burgerTown.cupboard) // The stock cupboard
-	renderStatistics(); // Miscellaneous information
 }

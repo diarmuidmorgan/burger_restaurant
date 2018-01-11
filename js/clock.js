@@ -6,6 +6,7 @@ function Clock() {
 		time += 1
 		// Calls the game loop every tick
 		incrementTime()
+		renderMessageLog()
 		gameLoop()
 	};
 
@@ -25,6 +26,7 @@ function Clock() {
 		if (time == 59) {
 			time = 0
 			burgerTown.time.minute += 1
+			renderStatistics();
 		} else {
 			if (burgerTown.time.minute == 59) {
 				burgerTown.time.minute = 0
