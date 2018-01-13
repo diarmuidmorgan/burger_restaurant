@@ -4,10 +4,9 @@ function Clock() {
 
 	this.increment = function() {
 		time += 1
-		document.getElementById('clockDisplay').innerHTML = time.toString();
-
 		// Calls the game loop every tick
 		incrementTime()
+		renderMessageLog()
 		gameLoop()
 	};
 
@@ -27,6 +26,8 @@ function Clock() {
 		if (time == 59) {
 			time = 0
 			burgerTown.time.minute += 1
+			renderStatistics();
+			renderStaffStats(burgerTown.staff);
 		} else {
 			if (burgerTown.time.minute == 59) {
 				burgerTown.time.minute = 0
@@ -38,12 +39,12 @@ function Clock() {
 					burgerTown.time.hour = 0
 					burgerTown.time.day += 1
 				} else {
-					if (burgerTown.time.day == 29) {
-						burgerTown.time.day = 0
+					if (burgerTown.time.day == 30) {
+						burgerTown.time.day = 1
 						burgerTown.time.month += 1
 					} else {
-						if (burgerTown.time.month == 11) {
-							burgerTown.time.month = 0
+						if (burgerTown.time.month == 12) {
+							burgerTown.time.month = 1
 							burgerTown.time.year += 1
 						}
 					}

@@ -4,10 +4,12 @@ function Restaurant() {
 	this.time = {
 		"minute": 0,
 		"hour": 0,
-		"day": 0,
+		"day": 1,
 		"month": 0,
 		"year": 0,
 	}
+
+	this.messageBox = new messageBox()
 
 	this.netEarning = 0;
 	this.bankBalance = OPENING_BALANCE;
