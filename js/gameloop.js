@@ -3,34 +3,41 @@ function gameLoop() {
 	for (var customer in burgerTown.queue) {
 
 		// Looks at whether the order is fulfilled, makes them angry if it's not.
-		if (burgerTown.queue[customer].order.completion == 100) {
-			console.log("Order completed")
-
-		} else {
-			burgerTown.queue[customer].anger += 5;
+		if (burgerTown.queue[customer].order.completion != 100) {
+			burgerTown.queue[customer].anger += 0.7;
 		}
 
 		// Customers walk out without paying if they're too angry
-		if (burgerTown.queue[customer].anger >= 80) {
+		if (burgerTown.queue[customer].anger >= 90) {
 			burgerTown.queue.splice(customer, 1)
 			burgerTown.customerWalkouts += 1
-			console.log("The customer got too irate and walked out.")
+			burgerTown.messageBox.writeMessage("A customer got too irate and walked out.")
 		}
 	}
 
 	for (var staffMember in burgerTown.staff) {
-
 		if (burgerTown.queue.length > 0) {
 			switch (burgerTown.staff[staffMember].constructor.name) {
 
 				case "Chef":
-					burgerTown.staff[staffMember].cookOrder(burgerTown.queue[0].order);
+					// Cook food
+					for (x in burgerTown.queue) {
+						if (burgerTown.queue[x].order.completion < 100) {
+							burgerTown.staff[staffMember].cookOrder(burgerTown.queue[x].order);
+							break;
+						}
+					}
 					break;
 
 				case "Manager":
-					// Do some managing
+					// Pay wages
+					if (burgerTown.time.day % 6 == 0) {
+						burgerTown.staff[staffMember].payWages()
+					};
 					break;
+
 				case "Cashier":
+					// Serve food
 					burgerTown.staff[staffMember].checkCompletion(burgerTown.queue[0]);
 					break;
 			}
@@ -41,7 +48,7 @@ function gameLoop() {
 
 	// Random chance for a customer to arrive each tick
 	if (Math.random() <= CUSTOMER_PROB) {
-		console.log("A customer has arrived.")
+		burgerTown.messageBox.writeMessage("A customer has arrived.")
 		burgerTown.queue.push(new Customer());
 	}
 
@@ -50,5 +57,4 @@ function gameLoop() {
 		renderOrder(burgerTown.queue[burgerTown.queue.length - 1].order) // The most recent order
 	}
 	renderStockCupboard(burgerTown.cupboard) // The stock cupboard
-	renderStatistics(); // Miscellaneous information
 }
