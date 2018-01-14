@@ -29,14 +29,14 @@ function renderStockCupboard(cupboard) {
 
 
 function renderStatistics() {
+	console.log('stuff happening here')
 	if (DEBUG_MODE == 1) {
 		var debug = document.getElementById('debug');
+
 		debug.innerHTML = ""
 
-		debug.insertAdjacentHTML('beforeend', 'Minute: ' + burgerTown.time.minute + '<br>');
-		debug.insertAdjacentHTML('beforeend', 'Hour: ' + burgerTown.time.hour + '<br>');
-		debug.insertAdjacentHTML('beforeend', 'Day: ' + burgerTown.time.day + '<br>');
-		debug.insertAdjacentHTML('beforeend', 'Month: ' + burgerTown.time.month + '<br><br>');
+		debug.insertAdjacentHTML('beforeend', 'Minute: ' + burgerTown.clock.produceTimeString(burgerTown.clockTime) + '<br>');
+
 		debug.insertAdjacentHTML('beforeend', 'Walkouts: ' + burgerTown.customerWalkouts + '<br>');
 		debug.insertAdjacentHTML('beforeend', 'Queue length: ' + burgerTown.queue.length + '<br>');
 		debug.insertAdjacentHTML('beforeend', 'Employees: ' + burgerTown.staff.length + '<br>');

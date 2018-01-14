@@ -81,14 +81,14 @@ function Chef(skill, hunger, apathy, stress, fatigue, agitator, unionised) {
 			}
 		}
 	}
-};
+}
 
 function Manager(skill, hunger, apathy, stress, fatigue, agitator, unionised) {
 	// Constructor for a manager
 	Employee.call(this, skill, hunger, apathy, stress, fatigue, agitator, unionised)
 	this.wage = MANAGER_WAGE + Math.floor(skill)
 	this.name = nameGenerator.generate()
-	this.payWages = function() {
+	
 
 
 	this.payWages = function() {
