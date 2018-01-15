@@ -47,6 +47,10 @@ function Chef(skill, hunger, apathy, stress, fatigue, agitator, unionised) {
 	Employee.call(this, skill, hunger, apathy, stress, fatigue, agitator, unionised)
 	this.wage = CHEF_WAGE + Math.floor(skill)
 	this.name = nameGenerator.generate()
+	//for tasks//
+	this.station = 'none';
+	this.currentTask = 'none';
+	this.assignedTasks = [];
 	this.work = function(){
 		//chef should look for available tasks.
 
@@ -88,7 +92,7 @@ function Manager(skill, hunger, apathy, stress, fatigue, agitator, unionised) {
 	Employee.call(this, skill, hunger, apathy, stress, fatigue, agitator, unionised)
 	this.wage = MANAGER_WAGE + Math.floor(skill)
 	this.name = nameGenerator.generate()
-	
+
 
 
 	this.payWages = function() {
