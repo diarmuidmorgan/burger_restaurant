@@ -1,3 +1,5 @@
+var currentView = 'mainView';
+
 function roundNumber(number) {
 	// Rounds numbers to two decimal places
 	return Math.round(number * 2) / 2
@@ -91,4 +93,13 @@ function renderStaffStats(staff) {
 		staffStats.insertAdjacentHTML('beforeend', staffInfo);
 		staffInfo = ""
 	}
+}
+
+function switchView(view){
+	if (currentView != view){
+document.getElementById(currentView).style.display='none';
+document.getElementById(view).style.display='';
+currentView = view;
+}
+
 }

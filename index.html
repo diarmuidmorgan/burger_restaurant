@@ -18,9 +18,9 @@
 </head>
 
 <body>
-  <div class="wrapper">
+  <div id="mainView" class="wrapper">
     <div id="clock">
-      
+
       <button name="clockStartBtn" onclick="burgerTown.clock.start()">
                 <p>Start</p>
             </button>
@@ -64,8 +64,24 @@
  Your browser does not support the audio element.
 </audio>
 <script>
+
 document.getElementById('myaudio').loop=true;
 </script>
+</div>
+<div id="cookingView" class="wrapper" style="display:none"></div>
+<div id="staffView" class="wrapper" style="display:none"></div>
+<div class="wrapper" id='viewButtons'>
+  <button name="mainView" onclick="switchView('mainView')">
+    <p>Main</p>
+    </button>
+    <button name="mainView" onclick="switchView('cookingView')">
+      <p>Kitchen</p>
+      </button>
+      <button name="staffView" onclick="switchView('staffView')">
+        <p>Staff</p>
+        </button>
+
+</div>
 </body>
 
 
