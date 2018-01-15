@@ -97,9 +97,29 @@ function renderStaffStats(staff) {
 
 function switchView(view){
 	if (currentView != view){
+		if (view=='staffView'){
+			updateStaff();
+		}
 document.getElementById(currentView).style.display='none';
 document.getElementById(view).style.display='';
 currentView = view;
 }
+}
 
+//staff view functions go here//
+
+function updateStaff(){
+	var view = document.getElementById('staffBox')
+	var html = '<table style="width:100%"><tr><td>Name</td><td>Occupation</td><td>Wage</td><td>Hunger</td></tr>';
+	for (i=0; i<burgerTown.staff.length; i++){
+		v = burgerTown.staff[i];
+		html+='<tr onclick="selectStaffMember('+v.id+')"><td>'+v.name+'</td>';
+		html+='<td>'+v.occupation+'</td>';
+		html+='<td>'+v.wage+'</td>';
+		html+='<td>'+v.hunger+'</td>';
+		html+='</tr>';
+
+		}
+	html+='</table>'
+	view.innerHTML=html;
 }

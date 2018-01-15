@@ -58,18 +58,18 @@
     <div id="mostRecentOrder"></div>
   </div>
   <div id="debug"></div>
-  <audio id="myaudio" autoplay>
 
- <source src="soundtrack.mp3" type="audio/mpeg">
- Your browser does not support the audio element.
-</audio>
-<script>
-
-document.getElementById('myaudio').loop=true;
-</script>
 </div>
 <div id="cookingView" class="wrapper" style="display:none"></div>
-<div id="staffView" class="wrapper" style="display:none"></div>
+
+
+<div id="staffView" class="wrapper" style="display:none">
+<div id='staffBox'></div>
+
+
+</div>
+
+
 <div class="wrapper" id='viewButtons'>
   <button name="mainView" onclick="switchView('mainView')">
     <p>Main</p>
@@ -83,6 +83,15 @@ document.getElementById('myaudio').loop=true;
 
 </div>
 </body>
+<audio id="myaudio" autoplay>
+
+<source src="soundtrack.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<script>
+
+document.getElementById('myaudio').loop=true;
+</script>
 
 
 </html>

@@ -1,3 +1,13 @@
+var empID=0
+
+function newEmployeeId(){
+var t = 'e'+empID.toString();
+empID+=1;
+return t;
+
+
+}
+
 function Employee(skill, hunger, apathy, stress, fatigue, agitator, unionised) {
 	// Constructor for an employee
 	// Begining at 0.0, incrementing periodically
@@ -7,6 +17,7 @@ function Employee(skill, hunger, apathy, stress, fatigue, agitator, unionised) {
 	this.skill = skill;
 	this.hours = 0
 	this.totalHours = 0
+	this.id=newEmployeeId();
 
 
 	this.hunger = hunger;
@@ -46,7 +57,8 @@ function Chef(skill, hunger, apathy, stress, fatigue, agitator, unionised) {
 	// Constructor for a chef
 	Employee.call(this, skill, hunger, apathy, stress, fatigue, agitator, unionised)
 	this.wage = CHEF_WAGE + Math.floor(skill)
-	this.name = nameGenerator.generate()
+	this.name = nameGenerator.generate();
+	this.occupation = 'Chef';
 	//for tasks//
 	this.station = 'none';
 	this.currentTask = 'none';
@@ -92,6 +104,7 @@ function Manager(skill, hunger, apathy, stress, fatigue, agitator, unionised) {
 	Employee.call(this, skill, hunger, apathy, stress, fatigue, agitator, unionised)
 	this.wage = MANAGER_WAGE + Math.floor(skill)
 	this.name = nameGenerator.generate()
+	this.occupation = 'Manager';
 
 
 
@@ -111,6 +124,7 @@ function Cashier(skill, hunger, apathy, stress, fatigue, agitator, unionised) {
 	Employee.call(this, skill, hunger, apathy, stress, fatigue, agitator, unionised)
 	this.wage = CASHIER_WAGE + Math.floor(skill)
 	this.name = nameGenerator.generate()
+	this.occupation='Cashier';
 
 	this.checkCompletion = function(queue) {
 		// Checks completion of order

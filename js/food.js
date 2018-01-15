@@ -128,6 +128,7 @@ var menu = {
 	},
 	"drink": {
 		"COKE": {
+			"DRINK": true,
 			"NAME": "Coke",
 			"PRICE": 3.50,
 			"COLD": true,
@@ -135,6 +136,7 @@ var menu = {
 			"COMPONENTS": ["cokeMix", "cup", "ice"],
 		},
 		"WATER": {
+			"DRINK": true,
 			"NAME": "Mineral Water",
 			"PRICE": 2.50,
 			"COLD": true,
@@ -142,6 +144,7 @@ var menu = {
 			"COMPONENTS": ["bottleWater"],
 		},
 		"COFFEE": {
+			"DRINK": true,
 			"NAME": "Coffee",
 			"PRICE": 3.00,
 			"HOT": true,
