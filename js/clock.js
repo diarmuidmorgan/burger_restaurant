@@ -1,16 +1,14 @@
 function Clock() {
 	// Main clock class for the restaurant
-	var time = 0
+	this.time = 0
 	// Clock is milliseconds/seconds/minutes/hours/days
 	var daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 	this.dayOfWeek = 0
 
 	this.increment = function() {
-		time += 1
+		this.time += 1;
 		// Calls the game loop every tick
 		incrementTime()
-		renderStatistics();
-		renderStaffStats(burgerTown.staff);
 		gameLoop()
 		renderMessageLog()
 	};
@@ -34,6 +32,8 @@ function Clock() {
 			burgerTown.clockTime[0] += 1;
 			if (burgerTown.clockTime[0] == 59) {
 				// Increment minutes
+				renderStatistics();
+				renderStaffStats(burgerTown.staff);
 				burgerTown.clockTime[0] = 0;
 				burgerTown.clockTime[1] += 1;
 				if (burgerTown.clockTime[1] == 59) {
@@ -43,13 +43,13 @@ function Clock() {
 					incrementHoursWorked()
 					if (burgerTown.clockTime[2] >= 24) {
 						// Increment days
+						burgerTown.clockTime[2] = 0;
+						burgerTown.clockTime[3] += 1;
 						this.dayOfWeek += 1
 						if (this.dayOfWeek >= 7) {
 							// Track days of week
-							this.dayOfWeek == 0
+							this.dayOfWeek = 0
 						}
-						burgerTown.clockTime[2] = 0;
-						burgerTown.clockTime[3] += 1;
 					}
 				}
 			}

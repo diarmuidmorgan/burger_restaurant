@@ -31,7 +31,7 @@ function gameLoop() {
 
 				case "Manager":
 					// Pay wages
-					if (burgerTown.time.day % 6 == 0) {
+					if (burgerTown.clock.time.day % 6 == 0) {
 						burgerTown.staff[staffMember].payWages()
 					};
 					break;
@@ -50,6 +50,11 @@ function gameLoop() {
 	if (Math.random() <= CUSTOMER_PROB) {
 		burgerTown.messageBox.writeMessage("A customer has arrived.")
 		burgerTown.queue.push(new Customer());
+	}
+
+	if (burgerTown.clock.time%10==0){
+		//update burgerTown records every 10 increments
+		addRecord();
 	}
 
 	// Redrawing other HTML stuff
