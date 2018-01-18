@@ -11,6 +11,8 @@ this.requiredWindows = {mainView : ['clockBar', 'mainWindows'],
 staffView : ['clockBar', 'staffWindows', 'staffControls']
 }
 
+this.currentGrillBox='a1';
+
 
 this.buildInterface = function(mode){
   if(mode=='default'){
@@ -88,8 +90,8 @@ return html;
 
 this.buildMainStaffWindows = function(mode){
 
-var html = '<div id="mainStaffWindows">'
-html += '<div id = "allStaffViewer" class = "col-4 mainWindow"></div>'
+var html = '<div id="mainStaffWindows" style="display:none">'
+html += '<div id = "allStaffViewer" class = "col-4 mainWindow" style="overflow-y:auto"></div>'
 html += '<div id = "individualStaffViewer" class = "col-8 mainWindow">'
 //add more details as required
 html += '<p id="currentStaffName"></p>'
@@ -110,12 +112,12 @@ return html;
 this.buildStaffControls = function(){
 var html = '<div id="staffControls">';
 
-html += '<div onClick="staff.fire(currentStaffMember)" class="button col-1"><p>Fire</p></div>';
-html += '<div onClick="staff.raiseSalary(currentStaffMember)" class="button col-1"><p>Raise salary</p></div>';
-html += '<div onClick="staff.cutSalary(currentStaffMember)" class="button col-1"><p>Cut salary</p></div>';
-html += '<div onClick="staff.reward(currentStaffMember)" class="button col-1"><p>Reward</p></div>';
-html += '<div onClick="staff.praise(currentStaffMember)" class="button col-1"><p>Praise</p></div>';
-html += '<div onClick="onClick="staff.chastise(currentStaffMember)"" class="button col-1"><p>Chastise</p></div>';
+html += '<div onClick="staffManager.fire(currentStaffMember)" class="button col-1"><p>Fire</p></div>';
+html += '<div onClick="staffManager.raiseSalary(currentStaffMember)" class="button col-1"><p>Raise salary</p></div>';
+html += '<div onClick="staffManager.cutSalary(currentStaffMember)" class="button col-1"><p>Cut salary</p></div>';
+html += '<div onClick="staffManager.reward(currentStaffMember)" class="button col-1"><p>Reward</p></div>';
+html += '<div onClick="staffManager.praise(currentStaffMember)" class="button col-1"><p>Praise</p></div>';
+html += '<div onClick="onClick="staffManager.chastise(currentStaffMember)"" class="button col-1"><p>Chastise</p></div>';
 html += '<div onClick="interface.staffOrders(currentStaffMember)" class="button col-1"><p>Order</p></div>';
 
 
@@ -126,7 +128,26 @@ return html;
 
 
 }
+//for staff windows
+this.updateAllStaffViewer = function(){
 
+  var ctx = document.getElementById('allStaffViewer');
+  for(var i in staffManager.staff){
+
+ctx.innerHTML += '<p class="staffMemberBox" onclick="interface.selectCurrentStaffMember(this.id)" id="'+i.id+'">'+i.name+':'+i.occupation+'</p>';
+
+
+  }
+
+
+
+}
+this.selectCurrentStaffMember=function(id){
+document.getElementById(this.currentStaffMember).style.backgroundColor='white';
+document.getElementById(id).style.backgroundColor='yellow';
+this.currentStaffMember=id
+
+}
 
 
 
@@ -158,6 +179,131 @@ this.switchView = function(view){
   }
   this.currentView = view;
 }
+
+this.buildGrillWindow() = function(){
+var keys = ['a', 'b', 'c']
+var html = '<div id="grillWindow" style="width:100%">';
+for(var i =0; i<3; i++){
+
+html+='<div id="grillRow'+keys[i]'" style="width:100%>'
+for(var z = 0; z<12; z++){
+html+='div id="grillCol'+keys[i]+z.toString()'" class="col-1 grillBox" onclick="interface.selectGrillBox(this.id)"></div>';
+}
+html+='</div>';
+}
+html+='</div>';
+return html;
+}
+
+this.buildGrillControls()=function(){
+//1   2   3   4   5   6   7   8   9   10  11  12
+// slider temp stock cupboard  stock control mssg
+
+
+var html = '<div id="grillControlsWindow" style="width:100%">';
+html+='<div id="grillTemp" class="col-2">';
+html+='<div id="grillSliderContainer">';
+html+='<input type="range" min="1" max="200" value="1" class="slider" id="grillTempSlider" onchange="interface.updateGrillSlider(this.value)"></div>'
+html+='<p id="grillTempDisplay"></p>'
+html+='</div>';
+
+html+='<div class="col-1><p id="grillTempDisplay"></p></div>'
+
+html += '<div class = "col-3" id="grillStockDisplay"><p>Grill stock</p></div>';
+
+html += 'div class = "col-1 button" id="grillControlsRefill" onclick="interface.grillRefill(interface.grillStockCurrent)"><p>Refill</p></div>';
+html += 'div class = "col-1 button" id="grillControlsAdd" onclick="interface.grillAdd(interface.grillStockCurrent, interface.currentGrillBox)"><p>Add</p></div>';
+html += 'div class = "col-1 button" id="grillControlsFlip" onclick="interface.grillFlip(interface.currentGrillBox)"><p>Flip</p></div>';
+html += 'div class = "col-1 button" id="grillControlsRemove" onclick="interface.grillRemove(interface.currentGrillBox)"><p>Remove</p></div>';
+html += 'div class = "col-1 button" id="grillControlsClean" onclick="interface.grillClean(interface.currentGrillBox)"><p>Clean</p></div>';
+
+html += 'div class = "col-1" id="grillMssgBox"></div>'
+
+
+
+return html;
+}
+
+//grill controls and update functions. OMFG SO MANY! Have everything covered so far, though many of the grill.methods that they call are yet to be defined/
+//made to work properly
+this.grillClean = function(grillBox){
+
+this.grillRemove(grillBox);
+kitchen.grill.cleanBoxMaster(grillBox);
+this.updateGrillBox(grillBox);
+this.addGrillMssg('success');
+
+}
+
+
+this.grillAdd = function(stock, grillBox){
+
+var mssg = kitchen.grill.addMaster(stock, grillBox)
+if(mssg=='success'){
+  this.addGrillMssg('success');
+  this.updateGrillBox(grillBox);
+}
+
+else{
+this.addGrillMssg(mssg);
+  }
+
+}
+
+this.updateGrillBox(id){
+
+var data = kitchen.grill.requestBoxStatus(id)
+var box = document.getElementById(id);
+box.style.backgroundColor = data[0];
+box.innerHTML = '<p>'+data[1]+'</p><p>'+data[2]+'</p>';
+
+
+}
+
+this.grillRemove=function(id){
+if(kitchen.grill.removeMaster=='nothing there'){
+  this.addGrillMssg('nothing there to remove');
+
+}
+else{
+this.addGrillMssg('success');
+this.updateGrillBox(id);
+
+}
+
+
+}
+
+this.grillRefill = function(id){
+
+  if (kitchen.grill.restockItem(id)===true){
+  this.updateGrillStock();
+
+  }
+else{
+
+  this.addGrillMssg(id+' was unavailable. Please order more.')
+
+}
+}
+this.addGrillMssg(mssg){
+var html = '<p class="grillMssg">'+mssg+'</p>' + document.getElementById('grillMssgBox').innerHTML
+document.getElementById('grillMssgBox').innerHTML=html;
+}
+
+
+this.updateGrillSlider = function(value){
+document.getElementById('grillSetTempDisplay').innerHTML=value;
+kitchen.grill.set_max_Temperature(value);
+}
+
+this.selectGrillBox = function(id){
+  this.updateGrillColor(this.currentGrillBox);
+  this.currentGrillBox = id;
+  document.getElementById(id).style.backgroundColor='yellow';
+  }
+
+
 
 
 

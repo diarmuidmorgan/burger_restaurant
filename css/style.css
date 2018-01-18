@@ -84,6 +84,16 @@ overflow:hidden;
 border-radius: 2px;
 display:block;}
 
+.grillBox:hover{background-color:deepskyblue;}
+
+#grillStockDisplay{width:100%;
+overflow-y:auto;
+border-radius: 2px;
+display:inline-block;
+
+
+}
+
 
 #clock {
   display: inline;
